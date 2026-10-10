@@ -1,0 +1,2008 @@
+<!DOCTYPE html>
+<html lang="uz" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Golden Strawberry | Premium Cakes & Desserts</title>
+  
+  <!-- Google Fonts: Cormorant Garamond & Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              pink: '#F9EBEA',
+              lightpink: '#FFF5F5',
+              rose: '#E8A598',
+              gold: '#D4AF37',
+              darkbrown: '#2C1810',
+              brown: '#4A2C21',
+              cream: '#FCF9F6'
+            }
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'serif'],
+            sans: ['"Montserrat"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Maxsus bezak va animatsiyalar */
+    .glass-nav {
+      background: rgba(255, 245, 245, 0.92);
+      backdrop-filter: blur(12px);
+    }
+    .shadow-luxury {
+      box-shadow: 0 15px 35px -5px rgba(44, 24, 16, 0.08), 0 5px 15px rgba(0, 0, 0, 0.03);
+    }
+    .text-gold-gradient {
+      background: linear-gradient(135deg, #D4AF37 0%, #AA771C 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .border-gold-gradient {
+      border-image: linear-gradient(to right, #D4AF37, #E8A598) 1;
+    }
+  </style>
+</head>
+<body class="bg-brand-cream text-brand-darkbrown font-sans antialiased selection:bg-brand-rose selection:text-white">
+
+  <!-- ================= HEADER / NAVBAR ================= -->
+  <header class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300 border-b border-brand-rose/20" id="mainHeader">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="#home" class="flex items-center space-x-2 group">
+        <i class="fa-solid fa-cake-candles text-2xl text-brand-gold group-hover:scale-110 transition-transform"></i>
+        <div class="flex flex-col">
+          <span class="font-serif text-2xl sm:text-3xl font-bold tracking-wider text-brand-darkbrown">Golden Strawberry</span>
+          <span class="text-[9px] uppercase tracking-[0.25em] text-brand-brown/70 -mt-1" data-i18n="logoSub">Haute Pâtisserie</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden lg:flex items-center space-x-7 text-sm font-medium tracking-wide">
+        <a href="#home" class="hover:text-brand-gold transition" data-i18n="navHome">Bosh sahifa</a>
+        <a href="#about" class="hover:text-brand-gold transition" data-i18n="navAbout">Biz haqimizda</a>
+        <a href="#cakes" class="hover:text-brand-gold transition" data-i18n="navCakes">Tortlar</a>
+        <a href="#gallery" class="hover:text-brand-gold transition" data-i18n="navGallery">Galereya</a>
+        <a href="#prices" class="hover:text-brand-gold transition" data-i18n="navPrices">Narxlar</a>
+        <a href="#reviews" class="hover:text-brand-gold transition" data-i18n="navReviews">Fikrlar</a>
+        <a href="#track" class="hover:text-brand-gold transition" data-i18n="navOrders">Kuzatish</a>
+        <a href="#contacts" class="hover:text-brand-gold transition" data-i18n="navContacts">Bog'lanish</a>
+      </nav>
+
+      <!-- Language Switcher & Order Action -->
+      <div class="hidden sm:flex items-center space-x-4">
+        <!-- Lang Buttons -->
+        <div class="inline-flex rounded-full p-1 bg-brand-pink border border-brand-rose/30 text-xs font-semibold">
+          <button onclick="setLanguage('uz')" id="lang-uz" class="px-2.5 py-1 rounded-full transition lang-btn bg-brand-darkbrown text-white">UZ</button>
+          <button onclick="setLanguage('ru')" id="lang-ru" class="px-2.5 py-1 rounded-full transition lang-btn text-brand-darkbrown hover:text-brand-gold">RU</button>
+          <button onclick="setLanguage('en')" id="lang-en" class="px-2.5 py-1 rounded-full transition lang-btn text-brand-darkbrown hover:text-brand-gold">EN</button>
+        </div>
+
+        <a href="#orderSection" class="bg-brand-darkbrown text-brand-cream px-6 py-2.5 rounded-full text-xs uppercase font-bold tracking-widest hover:bg-brand-brown shadow-md hover:shadow-lg transition transform hover:-translate-y-0.5" data-i18n="btnOrderNow">
+          Buyurtma berish
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobileMenuBtn" class="lg:hidden text-2xl text-brand-darkbrown focus:outline-none p-2" aria-label="Menyu">
+        <i class="fa-solid fa-bars-staggered"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-brand-lightpink/95 backdrop-blur-md border-b border-brand-rose/20 px-6 py-6 transition-all duration-300">
+      <div class="flex flex-col space-y-4 font-medium text-brand-darkbrown">
+        <a href="#home" class="mobile-link py-1 hover:text-brand-gold" data-i18n="navHome">Bosh sahifa</a>
+        <a href="#about" class="mobile-link py-1 hover:text-brand-gold" data-i18n="navAbout">Biz haqimizda</a>
+        <a href="#cakes" class="mobile-link py-1 hover:text-brand-gold" data-i18n="navCakes">Tortlar</a>
+        <a href="#gallery" class="mobile-link py-1 hover:text-brand-gold" data-i18n="navGallery">Galereya</a>
+        <a href="#prices" class="mobile-link py-1 hover:text-brand-gold" data-i18n="navPrices">Narxlar</a>
+        <a href="#reviews" class="mobile-link py-1 hover:text-brand-gold" data-i18n="navReviews">Fikrlar</a>
+        <a href="#track" class="mobile-link py-1 hover:text-brand-gold" data-i18n="navOrders">Buyurtmani kuzatish</a>
+        <a href="#contacts" class="mobile-link py-1 hover:text-brand-gold" data-i18n="navContacts">Bog'lanish</a>
+      </div>
+
+      <div class="mt-6 pt-4 border-t border-brand-rose/20 flex flex-col space-y-4">
+        <div class="flex items-center justify-between">
+          <span class="text-xs uppercase font-semibold text-brand-brown" data-i18n="langLabel">Tilni tanlang:</span>
+          <div class="inline-flex rounded-full p-1 bg-brand-pink border border-brand-rose/30 text-xs font-semibold">
+            <button onclick="setLanguage('uz')" class="px-2.5 py-1 rounded-full transition lang-btn-mob-uz">UZ</button>
+            <button onclick="setLanguage('ru')" class="px-2.5 py-1 rounded-full transition lang-btn-mob-ru">RU</button>
+            <button onclick="setLanguage('en')" class="px-2.5 py-1 rounded-full transition lang-btn-mob-en">EN</button>
+          </div>
+        </div>
+        <a href="#orderSection" class="mobile-link block text-center bg-brand-darkbrown text-brand-cream py-3 rounded-full text-xs uppercase font-bold tracking-widest shadow" data-i18n="btnOrderNow">
+          Buyurtma berish
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section id="home" class="relative pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden flex items-center min-h-[90vh]">
+    <div class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-brand-pink via-brand-cream to-brand-cream opacity-70"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-pink border border-brand-rose/30 text-xs font-semibold tracking-wider uppercase text-brand-brown">
+            <i class="fa-solid fa-crown text-brand-gold"></i>
+            <span data-i18n="heroBadge">Premium qo'l mehnati shirinliklari</span>
+          </div>
+
+          <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-brand-darkbrown leading-[1.08]">
+            <span class="block">Golden Strawberry</span>
+            <span class="block italic font-normal text-3xl sm:text-4xl md:text-5xl text-brand-gold mt-2" data-i18n="heroTagline">Har bir lahzaga nafis ta'm baxsh etamiz</span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-brand-brown/80 max-w-xl mx-auto lg:mx-0 font-light leading-relaxed" data-i18n="heroDesc">
+            Tabiiy mevalar, Belgiyaning eng sara shokoladi va nozik fransuz kremlari uyg'unligidagi eksklyuziv tortlar. Sizning unutilmas to'y, bayram va tavallud ayyomingiz uchun maxsus tayyorlanadi.
+          </p>
+
+          <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            <a href="#cakes" class="w-full sm:w-auto px-8 py-4 rounded-full bg-brand-darkbrown text-brand-cream font-medium tracking-wider uppercase text-xs hover:bg-brand-brown shadow-lg hover:shadow-xl transition transform hover:-translate-y-0.5 text-center" data-i18n="btnViewCakes">
+              Tortlarni ko'rish
+            </a>
+            <a href="#orderSection" class="w-full sm:w-auto px-8 py-4 rounded-full border-2 border-brand-darkbrown text-brand-darkbrown font-medium tracking-wider uppercase text-xs hover:bg-brand-darkbrown hover:text-white transition transform hover:-translate-y-0.5 text-center" data-i18n="btnOrderNow">
+              Buyurtma berish
+            </a>
+          </div>
+
+          <!-- Feature badges -->
+          <div class="grid grid-cols-3 gap-4 pt-6 border-t border-brand-rose/20 max-w-md mx-auto lg:mx-0 text-center">
+            <div>
+              <p class="font-serif text-2xl font-bold text-brand-darkbrown">100%</p>
+              <p class="text-[11px] uppercase tracking-wider text-brand-brown/70" data-i18n="statNatural">Tabiiy Masalliq</p>
+            </div>
+            <div>
+              <p class="font-serif text-2xl font-bold text-brand-darkbrown">5000+</p>
+              <p class="text-[11px] uppercase tracking-wider text-brand-brown/70" data-i18n="statHappy">Mamnun Mijozlar</p>
+            </div>
+            <div>
+              <p class="font-serif text-2xl font-bold text-brand-darkbrown">4.9 / 5</p>
+              <p class="text-[11px] uppercase tracking-wider text-brand-brown/70" data-i18n="statRating">A'lo Baho</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Image -->
+        <div class="lg:col-span-5 relative flex justify-center">
+          <div class="relative w-80 h-96 sm:w-96 sm:h-[480px] rounded-t-[10rem] rounded-b-3xl overflow-hidden shadow-2xl border-4 border-white">
+            <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=900&q=80" alt="Golden Strawberry Luxury Cake" class="w-full h-full object-cover transform hover:scale-105 transition duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-darkbrown/60 via-transparent to-transparent"></div>
+            <div class="absolute bottom-6 left-6 right-6 text-white text-center">
+              <span class="text-xs uppercase tracking-widest text-brand-pink" data-i18n="heroImgLabel">Artisan Creation</span>
+              <p class="font-serif text-xl italic" data-i18n="heroImgName">Signature Royal Strawberry</p>
+            </div>
+          </div>
+
+          <!-- Floating decorative pill -->
+          <div class="absolute -bottom-4 -left-4 sm:left-4 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-luxury border border-brand-pink flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-full bg-brand-pink flex items-center justify-center text-brand-rose">
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <div>
+              <p class="text-xs font-bold text-brand-darkbrown" data-i18n="floatingBadgeTitle">Qo'l mehnati muhabbati</p>
+              <p class="text-[10px] text-brand-brown/70" data-i18n="floatingBadgeSub">Har kun yangi pishiriladi</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT SECTION ================= -->
+  <section id="about" class="py-24 bg-white relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Left 2-3 Images Grid -->
+        <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+          <div class="space-y-4">
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80" alt="Cake Crafting" class="rounded-2xl shadow-luxury w-full h-56 object-cover hover:opacity-95 transition">
+            <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=700&q=80" alt="Strawberry Cake" class="rounded-2xl shadow-luxury w-full h-72 object-cover hover:opacity-95 transition">
+          </div>
+          <div class="pt-8">
+            <img src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&w=700&q=80" alt="Wedding Cake" class="rounded-2xl shadow-luxury w-full h-96 object-cover hover:opacity-95 transition">
+          </div>
+        </div>
+
+        <!-- Right Content -->
+        <div class="lg:col-span-6 space-y-6">
+          <div class="inline-block border-b-2 border-brand-rose pb-1">
+            <span class="text-xs uppercase font-bold tracking-widest text-brand-brown" data-i18n="aboutSubtitle">Bizning Hikoyamiz</span>
+          </div>
+
+          <h2 class="font-serif text-4xl sm:text-5xl font-bold text-brand-darkbrown" data-i18n="aboutTitle">
+            Shirinliklarimiz — Sizning unutilmas his-tuyg'ularingiz
+          </h2>
+
+          <p class="text-brand-brown/80 leading-relaxed font-light text-base" data-i18n="aboutP1">
+            <strong>Golden Strawberry</strong> — bu oddiy shirinlikxona emas, bu nozik lazzat va go'zallik san'ati uyg'unlashgan butikdir. Biz har bir mahsulotni faqat eng sara va tabiiy masalliqlar, saralangan qulupnaylar, haqiqiy qaymoq va Belgiya shokoladidan tayyorlaymiz.
+          </p>
+
+          <p class="text-brand-brown/80 leading-relaxed font-light text-base" data-i18n="aboutP2">
+            Biz sizning eng quvonchli bayramlaringiz uchun eksklyuziv shirinliklar yaratamiz:
+          </p>
+
+          <!-- Occasions Pills -->
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
+            <div class="p-3 bg-brand-lightpink rounded-xl border border-brand-rose/20 text-center">
+              <i class="fa-solid fa-cake-candles text-brand-rose mb-1"></i>
+              <p class="text-xs font-semibold" data-i18n="occBirthday">Tug'ilgan kunlar</p>
+            </div>
+            <div class="p-3 bg-brand-lightpink rounded-xl border border-brand-rose/20 text-center">
+              <i class="fa-solid fa-ring text-brand-rose mb-1"></i>
+              <p class="text-xs font-semibold" data-i18n="occWedding">To'y marosimlari</p>
+            </div>
+            <div class="p-3 bg-brand-lightpink rounded-xl border border-brand-rose/20 text-center">
+              <i class="fa-solid fa-champagne-glasses text-brand-rose mb-1"></i>
+              <p class="text-xs font-semibold" data-i18n="occAnniversary">Yubileylar</p>
+            </div>
+            <div class="p-3 bg-brand-lightpink rounded-xl border border-brand-rose/20 text-center">
+              <i class="fa-solid fa-gift text-brand-rose mb-1"></i>
+              <p class="text-xs font-semibold" data-i18n="occGifts">Nafis sovg'alar</p>
+            </div>
+            <div class="p-3 bg-brand-lightpink rounded-xl border border-brand-rose/20 text-center">
+              <i class="fa-solid fa-heart text-brand-rose mb-1"></i>
+              <p class="text-xs font-semibold" data-i18n="occRomantic">Maxsus sanalar</p>
+            </div>
+            <div class="p-3 bg-brand-lightpink rounded-xl border border-brand-rose/20 text-center">
+              <i class="fa-solid fa-star text-brand-rose mb-1"></i>
+              <p class="text-xs font-semibold" data-i18n="occCorporate">VIP tadbirlar</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= CAKES / PRODUCTS SECTION ================= -->
+  <section id="cakes" class="py-24 bg-brand-cream relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest font-bold text-brand-rose" data-i18n="catalogSubtitle">Eksklyuziv Kolleksiya</span>
+        <h2 class="font-serif text-4xl sm:text-5xl font-bold text-brand-darkbrown mt-2" data-i18n="catalogTitle">Bizning Mahsulotlar</h2>
+        <div class="w-16 h-0.5 bg-brand-gold mx-auto mt-4"></div>
+      </div>
+
+      <!-- Categories Filter Tabs -->
+      <div class="flex flex-wrap items-center justify-center gap-2 mb-12" id="filterButtons">
+        <button onclick="filterProducts('all')" class="cat-btn active px-6 py-2 rounded-full text-xs uppercase font-bold tracking-wider transition bg-brand-darkbrown text-white" data-cat="all" data-i18n="catAll">Barchasi</button>
+        <button onclick="filterProducts('cakes')" class="cat-btn px-6 py-2 rounded-full text-xs uppercase font-bold tracking-wider transition bg-white text-brand-darkbrown hover:bg-brand-pink" data-cat="cakes" data-i18n="catCakes">Klassik Tortlar</button>
+        <button onclick="filterProducts('bento')" class="cat-btn px-6 py-2 rounded-full text-xs uppercase font-bold tracking-wider transition bg-white text-brand-darkbrown hover:bg-brand-pink" data-cat="bento" data-i18n="catBento">Bento Tortlar</button>
+        <button onclick="filterProducts('wedding')" class="cat-btn px-6 py-2 rounded-full text-xs uppercase font-bold tracking-wider transition bg-white text-brand-darkbrown hover:bg-brand-pink" data-cat="wedding" data-i18n="catWedding">To'y Tortlari</button>
+        <button onclick="filterProducts('desserts')" class="cat-btn px-6 py-2 rounded-full text-xs uppercase font-bold tracking-wider transition bg-white text-brand-darkbrown hover:bg-brand-pink" data-cat="desserts" data-i18n="catDesserts">Desertlar</button>
+      </div>
+
+      <!-- Products Grid (12 Items) -->
+      <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        <!-- JavaScript orqali dinamik yuklanadi -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= PRODUCT DETAIL MODAL ================= -->
+  <div id="productModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-brand-darkbrown/60 backdrop-blur-sm">
+    <div class="bg-white rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl relative animate-fadeIn border border-brand-rose/20 max-h-[90vh] overflow-y-auto">
+      
+      <button onclick="closeProductModal()" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/80 hover:bg-white text-brand-darkbrown flex items-center justify-center shadow transition" aria-label="Yopish">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+
+      <div class="grid grid-cols-1 md:grid-cols-2">
+        <div class="h-64 md:h-full relative">
+          <img id="modalProductImg" src="" alt="Product" class="w-full h-full object-cover">
+        </div>
+        
+        <div class="p-6 md:p-8 flex flex-col justify-between space-y-4">
+          <div>
+            <span id="modalProductCategory" class="text-[10px] uppercase font-bold tracking-widest text-brand-rose">Kategoriya</span>
+            <h3 id="modalProductName" class="font-serif text-3xl font-bold text-brand-darkbrown mt-1">Tort Nomi</h3>
+            <p id="modalProductPrice" class="text-xl font-bold text-brand-gold mt-2">0 UZS</p>
+            
+            <p id="modalProductDesc" class="text-xs text-brand-brown/80 mt-4 leading-relaxed">Tavsif</p>
+            
+            <div class="mt-4 pt-4 border-t border-brand-rose/10 space-y-2">
+              <div class="flex items-center text-xs text-brand-brown">
+                <i class="fa-solid fa-weight-hanging text-brand-rose w-5"></i>
+                <span class="font-semibold mr-2" data-i18n="modalWeightLabel">Hajmi/Og'irligi:</span>
+                <span id="modalProductWeight">1.5 kg</span>
+              </div>
+              <div class="flex items-center text-xs text-brand-brown">
+                <i class="fa-solid fa-leaf text-brand-rose w-5"></i>
+                <span class="font-semibold mr-2" data-i18n="modalIngredientsLabel">Tarkibi:</span>
+                <span id="modalProductIngredients">Tabiiy qaymoq, mevalar</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-brand-rose/20 flex flex-col gap-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-semibold text-brand-darkbrown" data-i18n="modalQtyLabel">Miqdori:</span>
+              <div class="flex items-center border border-brand-rose/30 rounded-full px-2 py-1 bg-brand-lightpink">
+                <button onclick="changeModalQty(-1)" class="w-7 h-7 rounded-full flex items-center justify-center hover:bg-white text-brand-darkbrown"><i class="fa-solid fa-minus text-xs"></i></button>
+                <span id="modalQtyVal" class="px-4 text-xs font-bold">1</span>
+                <button onclick="changeModalQty(1)" class="w-7 h-7 rounded-full flex items-center justify-center hover:bg-white text-brand-darkbrown"><i class="fa-solid fa-plus text-xs"></i></button>
+              </div>
+            </div>
+
+            <button onclick="orderFromModal()" class="w-full py-3.5 rounded-full bg-brand-darkbrown text-brand-cream text-xs uppercase font-bold tracking-widest hover:bg-brand-brown shadow transition flex items-center justify-center gap-2">
+              <i class="fa-solid fa-basket-shopping"></i>
+              <span data-i18n="btnOrderDirect">Buyurtma berish</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= GALLERY WITH LIGHTBOX ================= -->
+  <section id="gallery" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest font-bold text-brand-rose" data-i18n="gallerySubtitle">Bizning Ijodimiz</span>
+        <h2 class="font-serif text-4xl sm:text-5xl font-bold text-brand-darkbrown mt-2" data-i18n="galleryTitle">Fotogalereya</h2>
+        <p class="text-xs text-brand-brown/70 mt-3" data-i18n="galleryHint">Rasmni kattaroq ko'rish uchun ustiga bosing</p>
+        <div class="w-16 h-0.5 bg-brand-gold mx-auto mt-4"></div>
+      </div>
+
+      <!-- Masonry-style Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="galleryContainer">
+        <!-- JavaScript orqali yuklanadi -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Gallery Lightbox Modal -->
+  <div id="lightboxModal" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
+    <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white text-3xl hover:text-brand-rose transition z-10" aria-label="Yopish">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <button onclick="prevLightboxImage()" class="absolute left-4 sm:left-8 text-white text-3xl hover:text-brand-rose transition z-10 p-2" aria-label="Oldingi">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    <button onclick="nextLightboxImage()" class="absolute right-4 sm:right-8 text-white text-3xl hover:text-brand-rose transition z-10 p-2" aria-label="Keyingi">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+    <div class="max-w-4xl max-h-[85vh] flex flex-col items-center">
+      <img id="lightboxImg" src="" alt="Full view" class="max-h-[75vh] w-auto max-w-full rounded-xl shadow-2xl object-contain">
+      <p id="lightboxCaption" class="text-white font-serif text-lg italic mt-4 text-center"></p>
+    </div>
+  </div>
+
+  <!-- ================= PRICING SECTION ================= -->
+  <section id="prices" class="py-24 bg-brand-cream relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs uppercase tracking-widest font-bold text-brand-rose" data-i18n="priceSubtitle">Shakllar va O'lchamlar</span>
+        <h2 class="font-serif text-4xl sm:text-5xl font-bold text-brand-darkbrown mt-2" data-i18n="priceTitle">Shaffof Narxlarimiz</h2>
+        <p class="text-sm text-brand-brown/70 mt-3" data-i18n="priceDesc">Barcha tortlarimiz eng oliy sifatli tabiiy ingredientlar bilan pishiriladi</p>
+        <div class="w-16 h-0.5 bg-brand-gold mx-auto mt-4"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <!-- Card 1: Bento / Mini -->
+        <div class="bg-white rounded-3xl p-8 shadow-luxury border border-brand-rose/20 flex flex-col justify-between hover:-translate-y-2 transition duration-300">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-brand-pink flex items-center justify-center text-brand-darkbrown mb-6">
+              <i class="fa-solid fa-cookie text-xl"></i>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-brand-darkbrown" data-i18n="price1Title">Mini / Bento</h3>
+            <p class="text-xs text-brand-brown/70 mt-1" data-i18n="price1Sub">1-2 kishi uchun yoqimli sovg'a</p>
+            <div class="mt-6">
+              <span class="font-serif text-3xl font-bold text-brand-darkbrown">120,000</span>
+              <span class="text-xs font-semibold text-brand-brown"> UZS</span>
+            </div>
+            <ul class="mt-6 space-y-3 text-xs text-brand-brown">
+              <li class="flex items-center"><i class="fa-solid fa-check text-brand-rose mr-2"></i> <span data-i18n="price1F1">Vazni: 400 - 500 gramm</span></li>
+              <li class="flex items-center"><i class="fa-solid fa-check text-brand-rose mr-2"></i> <span data-i18n="price1F2">Diametri: 10 - 12 sm</span></li>
+              <li class="flex items-center"><i class="fa-solid fa-check text-brand-rose mr-2"></i> <span data-i18n="price1F3">Maxsus qadoq va shamcha</span></li>
+              <li class="flex items-center"><i class="fa-solid fa-check text-brand-rose mr-2"></i> <span data-i18n="price1F4">Oddiy yozuv bepul</span></li>
+            </ul>
+          </div>
+          <button onclick="selectPricePlan('Bento Cake')" class="mt-8 w-full py-3 rounded-full border border-brand-darkbrown text-brand-darkbrown hover:bg-brand-darkbrown hover:text-white transition text-xs uppercase font-bold tracking-wider" data-i18n="btnChoose">
+            Tanlash
+          </button>
+        </div>
+
+        <!-- Card 2: Medium -->
+        <div class="bg-white rounded-3xl p-8 shadow-luxury border-2 border-brand-rose flex flex-col justify-between relative hover:-translate-y-2 transition duration-300">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand-rose text-white px-4 py-1 rounded-full text-[10px] uppercase font-bold tracking-widest">
+            Mashhur tanlov
+          </div>
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-brand-pink flex items-center justify-center text-brand-darkbrown mb-6">
+              <i class="fa-solid fa-cake-candles text-xl"></i>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-brand-darkbrown" data-i18n="price2Title">Medium (Oila)</h3>
+            <p class="text-xs text-brand-brown/70 mt-1" data-i18n="price2Sub">6-8 kishilik oilaviy bayramlar</p>
+            <div class="mt-6">
+              <span class="font-serif text-3xl font-bold text-brand-darkbrown">250,000</span>
+              <span class="text-xs font-semibold text-brand-brown"> UZS</span>
+            </div>
+            <ul class="mt-6 space-y-3 text-xs text-brand-brown">
+              <li class="flex items-center"><i class="fa-solid fa-check text-brand-rose mr-2"></i> <span data-i18n="price2F1">Vazni: 1.2 - 1.5 kg</span></li>
+              <li class="flex items-center"><i class="fa-solid fa-check text-brand-rose mr-2"></i> <span data-i18n="price2F2">Diametri: 18 - 20 sm</span></li>
+              <li class="flex items-center"><i class="fa-solid fa-check text-brand-rose mr-2"></i> <span data-i18n="price2F3">Yangi mevalar bezagi</span></li>
+              <li class="flex items-center"><i class="fa-solid fa-check text-brand-rose mr-2"></i> <span data-i18n="price2F4">Maxsus tabriknoma</span></li>
+            </ul>
+          </div>
+          <button onclick="selectPricePlan('Medium Cake')" class="mt-8 w-full py-3 rounded-full bg-brand-darkbrown text-white hover:bg-brand-brown transition text-xs uppercase font-bold tracking-wider" data-i18n="btnChoose">
+            Tanlash
+          </button>
+        </div>
+
+        <!-- Card 3: Large -->
+        <div class="bg-white rounded-3xl p-8 shadow-luxury border border-brand-rose/20 flex flex-col justify-between hover:-translate-y-2 transition duration-300">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-brand-pink flex items-center justify-center text-brand-darkbrown mb-6">
+              <i class="fa-solid fa-crown text-xl text-brand-gold"></i>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-brand-darkbrown" data-i18n="price3Title">Large (Katta)</h3>
+            <p class="text-xs text-brand-brown/70 mt-1" data-i18n="price3Sub">12-16 kishilik katta do'stlar davrasi</p>
+            <div class="mt-6">
+              <span class="font-serif text-3xl font-bold text-brand-darkbrown">400,000</span>
+              <span class="text-xs font-semibold text-brand-brown"> UZS</span>
+            </div>
+            <ul class="mt-6 space-y-3 text-xs text-brand-brown">
+              <li class="flex items-center"><i class="fa-solid fa-check text-brand-rose mr-2"></i> <span data-i18n="price3F1">Vazni: 2.2 - 2.8 kg</span></li>
+              <li class="flex items-center"><i class="fa-solid fa-check text-brand-rose mr-2"></i> <span data-i18n="price3F2">Diametri: 24 - 26 sm</span></li>
+              <li class="flex items-center"><i class="fa-solid fa-check text-brand-rose mr-2"></i> <span data-i18n="price3F3">Premium shokolad va mevalar</span></li>
+              <li class="flex items-center"><i class="fa-solid fa-check text-brand-rose mr-2"></i> <span data-i18n="price3F4">Shahar bo'ylab bepul yetkazish</span></li>
+            </ul>
+          </div>
+          <button onclick="selectPricePlan('Large Cake')" class="mt-8 w-full py-3 rounded-full border border-brand-darkbrown text-brand-darkbrown hover:bg-brand-darkbrown hover:text-white transition text-xs uppercase font-bold tracking-wider" data-i18n="btnChoose">
+            Tanlash
+          </button>
+        </div>
+
+        <!-- Card 4: Wedding / Custom -->
+        <div class="bg-gradient-to-b from-brand-pink/50 to-white rounded-3xl p-8 shadow-luxury border border-brand-gold/40 flex flex-col justify-between hover:-translate-y-2 transition duration-300">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-brand-gold/20 flex items-center justify-center text-brand-darkbrown mb-6">
+              <i class="fa-solid fa-gem text-xl text-brand-gold"></i>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-brand-darkbrown" data-i18n="price4Title">To'y / VIP</h3>
+            <p class="text-xs text-brand-brown/70 mt-1" data-i18n="price4Sub">Ko'p qavatli individual dizayn</p>
+            <div class="mt-6">
+              <span class="text-xs font-semibold text-brand-brown" data-i18n="priceFrom">dan </span>
+              <span class="font-serif text-3xl font-bold text-brand-darkbrown">600,000</span>
+              <span class="text-xs font-semibold text-brand-brown"> UZS</span>
+            </div>
+            <ul class="mt-6 space-y-3 text-xs text-brand-brown">
+              <li class="flex items-center"><i class="fa-solid fa-check text-brand-gold mr-2"></i> <span data-i18n="price4F1">2-4 qavatli (3.5 kg dan boshlab)</span></li>
+              <li class="flex items-center"><i class="fa-solid fa-check text-brand-gold mr-2"></i> <span data-i18n="price4F2">Tirak konstruksiya va sovutgich</span></li>
+              <li class="flex items-center"><i class="fa-solid fa-check text-brand-gold mr-2"></i> <span data-i18n="price4F3">Tirik gullar va oltin qoplam</span></li>
+              <li class="flex items-center"><i class="fa-solid fa-check text-brand-gold mr-2"></i> <span data-i18n="price4F4">Maxsus konditer servis yetkazish</span></li>
+            </ul>
+          </div>
+          <button onclick="selectPricePlan('Wedding Custom')" class="mt-8 w-full py-3 rounded-full bg-brand-darkbrown text-white hover:bg-brand-brown transition text-xs uppercase font-bold tracking-wider" data-i18n="btnChoose">
+            Tanlash
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= REVIEWS SECTION ================= -->
+  <section id="reviews" class="py-24 bg-white relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row items-center justify-between mb-12">
+        <div>
+          <span class="text-xs uppercase tracking-widest font-bold text-brand-rose" data-i18n="reviewsSubtitle">Mijozlarimiz Bahosi</span>
+          <h2 class="font-serif text-4xl sm:text-5xl font-bold text-brand-darkbrown mt-2" data-i18n="reviewsTitle">Haqiqiy Fikrlar</h2>
+        </div>
+        <button onclick="openReviewModal()" class="mt-4 md:mt-0 px-6 py-3 rounded-full bg-brand-pink text-brand-darkbrown border border-brand-rose/40 font-semibold text-xs uppercase tracking-wider hover:bg-brand-rose hover:text-white transition flex items-center gap-2">
+          <i class="fa-solid fa-pen-nib"></i>
+          <span data-i18n="btnAddReview">Fikr qoldirish</span>
+        </button>
+      </div>
+
+      <!-- Reviews Container -->
+      <div id="reviewsContainer" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Dinamik ko'rinishda saqlangan sharhlar chiqadi -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Add Review Modal -->
+  <div id="reviewModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-brand-darkbrown/60 backdrop-blur-sm">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative animate-fadeIn border border-brand-rose/20">
+      <button onclick="closeReviewModal()" class="absolute top-4 right-4 text-brand-brown hover:text-brand-darkbrown text-xl">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <h3 class="font-serif text-2xl font-bold text-brand-darkbrown mb-1" data-i18n="reviewModalTitle">Fikringizni qoldiring</h3>
+      <p class="text-xs text-brand-brown/70 mb-6" data-i18n="reviewModalDesc">Sizning fikringiz biz uchun juda qadrli</p>
+
+      <form id="newReviewForm" onsubmit="handleReviewSubmit(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-brand-darkbrown mb-1" data-i18n="reviewFieldName">Ismingiz *</label>
+          <input type="text" id="revName" required placeholder="Madina Karimova" class="w-full px-4 py-2.5 rounded-xl border border-brand-rose/30 focus:outline-none focus:border-brand-gold text-xs">
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-brand-darkbrown mb-1" data-i18n="reviewFieldRating">Bahoingiz</label>
+          <div class="flex items-center space-x-2 text-xl text-brand-gold cursor-pointer" id="starRatingSelect">
+            <i class="fa-solid fa-star" onclick="setFormRating(1)"></i>
+            <i class="fa-solid fa-star" onclick="setFormRating(2)"></i>
+            <i class="fa-solid fa-star" onclick="setFormRating(3)"></i>
+            <i class="fa-solid fa-star" onclick="setFormRating(4)"></i>
+            <i class="fa-solid fa-star" onclick="setFormRating(5)"></i>
+          </div>
+          <input type="hidden" id="revRatingVal" value="5">
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-brand-darkbrown mb-1" data-i18n="reviewFieldText">Fikringiz *</label>
+          <textarea id="revComment" required rows="3" placeholder="Tort juda mayin va shirin chiqibdi..." class="w-full px-4 py-2.5 rounded-xl border border-brand-rose/30 focus:outline-none focus:border-brand-gold text-xs"></textarea>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-brand-darkbrown mb-1" data-i18n="reviewFieldPhoto">Rasm (Ixtiyoriy havola yoki bo'sh qoldiring)</label>
+          <input type="url" id="revPhoto" placeholder="https://images.unsplash.com/..." class="w-full px-4 py-2 rounded-xl border border-brand-rose/30 focus:outline-none focus:border-brand-gold text-xs">
+        </div>
+
+        <button type="submit" class="w-full py-3 rounded-full bg-brand-darkbrown text-white text-xs uppercase font-bold tracking-wider hover:bg-brand-brown transition" data-i18n="btnSendReview">
+          Yuborish
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= ORDER SECTION ================= -->
+  <section id="orderSection" class="py-24 bg-brand-cream relative">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="bg-white rounded-3xl p-8 sm:p-12 shadow-luxury border border-brand-rose/30">
+        
+        <div class="text-center max-w-xl mx-auto mb-10">
+          <span class="text-xs uppercase tracking-widest font-bold text-brand-rose" data-i18n="orderSubtitle">Onlayn Buyurtma</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-darkbrown mt-2" data-i18n="orderTitle">O'z orzuingizdagi tortni tanlang</h2>
+          <p class="text-xs text-brand-brown/70 mt-2" data-i18n="orderDesc">Formani to'ldiring, menejerimiz 15 daqiqada siz bilan bog'lanadi</p>
+        </div>
+
+        <form id="orderForm" onsubmit="handleOrderSubmit(event)" class="space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <div>
+              <label class="block text-xs font-semibold text-brand-darkbrown mb-1" data-i18n="formName">Ismingiz *</label>
+              <input type="text" id="orderCustName" required placeholder="Dilnoza Saidova" class="w-full px-4 py-3 rounded-xl border border-brand-rose/30 focus:outline-none focus:border-brand-gold text-xs">
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-brand-darkbrown mb-1" data-i18n="formPhone">Telefon raqamingiz *</label>
+              <input type="tel" id="orderCustPhone" required placeholder="+998 90 123 45 67" class="w-full px-4 py-3 rounded-xl border border-brand-rose/30 focus:outline-none focus:border-brand-gold text-xs">
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-brand-darkbrown mb-1" data-i18n="formProduct">Mahsulot nomi *</label>
+              <select id="orderProductSelect" required class="w-full px-4 py-3 rounded-xl border border-brand-rose/30 focus:outline-none focus:border-brand-gold text-xs bg-white">
+                <option value="Strawberry Royal Cake">Strawberry Royal Cake</option>
+                <option value="Red Velvet Supreme">Red Velvet Supreme</option>
+                <option value="Belgian Chocolate Truffle">Belgian Chocolate Truffle</option>
+                <option value="Wild Berry Chantilly">Wild Berry Chantilly</option>
+                <option value="Royal Honey Cake (Medovik)">Royal Honey Cake (Medovik)</option>
+                <option value="Pistachio Raspberry Delice">Pistachio Raspberry Delice</option>
+                <option value="Grand Wedding Symphony">Grand Wedding Symphony</option>
+                <option value="Strawberry Bento Dream">Strawberry Bento Dream</option>
+                <option value="New York Strawberry Cheesecake">New York Strawberry Cheesecake</option>
+                <option value="Chocolate Dipped Strawberries">Chocolate Dipped Strawberries</option>
+                <option value="French Macarons Box">French Macarons Box</option>
+                <option value="Custom Design Cake">Custom Design Cake</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-brand-darkbrown mb-1" data-i18n="formSize">Tort o'lchami</label>
+              <select id="orderSizeSelect" class="w-full px-4 py-3 rounded-xl border border-brand-rose/30 focus:outline-none focus:border-brand-gold text-xs bg-white">
+                <option value="Mini / Bento (0.5 kg)">Mini / Bento (0.5 kg)</option>
+                <option value="Medium (1.5 kg)" selected>Medium (1.5 kg)</option>
+                <option value="Large (2.5 kg)">Large (2.5 kg)</option>
+                <option value="Custom Wedding (3.5+ kg)">Custom Wedding (3.5+ kg)</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-brand-darkbrown mb-1" data-i18n="formDate">Yetkazib berish sanasi *</label>
+              <input type="date" id="orderDate" required class="w-full px-4 py-3 rounded-xl border border-brand-rose/30 focus:outline-none focus:border-brand-gold text-xs bg-white">
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-brand-darkbrown mb-1" data-i18n="formTime">Vaqti</label>
+              <input type="time" id="orderTime" value="14:00" class="w-full px-4 py-3 rounded-xl border border-brand-rose/30 focus:outline-none focus:border-brand-gold text-xs bg-white">
+            </div>
+
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-brand-darkbrown mb-1" data-i18n="formMessage">Tortdagi yozuv yoki maxsus tilaklar</label>
+            <textarea id="orderComment" rows="3" placeholder="Masalan: 'Tug'ilgan kuning bilan, Sevara!'" class="w-full px-4 py-3 rounded-xl border border-brand-rose/30 focus:outline-none focus:border-brand-gold text-xs"></textarea>
+          </div>
+
+          <button type="submit" class="w-full py-4 rounded-full bg-brand-darkbrown text-brand-cream text-xs uppercase font-bold tracking-widest hover:bg-brand-brown shadow-lg hover:shadow-xl transition transform hover:-translate-y-0.5" data-i18n="btnPlaceOrder">
+            Buyurtmani tasdiqlash
+          </button>
+        </form>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= ORDER TRACKING SECTION ================= -->
+  <section id="track" class="py-24 bg-white border-y border-brand-rose/20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      
+      <span class="text-xs uppercase tracking-widest font-bold text-brand-rose" data-i18n="trackSubtitle">Real Vaqt Rejimida</span>
+      <h2 class="font-serif text-4xl font-bold text-brand-darkbrown mt-2" data-i18n="trackTitle">Buyurtmangizni Kuzating</h2>
+      <p class="text-xs text-brand-brown/70 mt-2 max-w-md mx-auto" data-i18n="trackDesc">Sizga berilgan buyurtma raqamini kiriting (Masalan: GS-1001 yoki o'zingiz bergan yangi buyurtma raqami)</p>
+
+      <!-- Input Bar -->
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto">
+        <input type="text" id="trackInput" placeholder="GS-1001" class="w-full sm:w-2/3 px-5 py-3 rounded-full border border-brand-rose/40 text-xs font-semibold uppercase tracking-wider focus:outline-none focus:border-brand-gold">
+        <button onclick="checkOrderStatus()" class="w-full sm:w-auto px-8 py-3 rounded-full bg-brand-darkbrown text-white text-xs uppercase font-bold tracking-wider hover:bg-brand-brown transition" data-i18n="btnTrack">
+          Tekshirish
+        </button>
+      </div>
+
+      <!-- Tracking Status Result Card -->
+      <div id="trackingResult" class="mt-12 hidden animate-fadeIn bg-brand-lightpink p-8 rounded-3xl border border-brand-rose/30 max-w-2xl mx-auto text-left shadow-luxury">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center pb-6 border-b border-brand-rose/20 gap-2">
+          <div>
+            <span class="text-[10px] uppercase font-bold text-brand-brown/60" data-i18n="trackOrderNumLabel">Buyurtma Raqami:</span>
+            <p id="trackResId" class="font-serif text-2xl font-bold text-brand-darkbrown">GS-1001</p>
+          </div>
+          <div>
+            <span class="text-[10px] uppercase font-bold text-brand-brown/60" data-i18n="trackProductLabel">Mahsulot:</span>
+            <p id="trackResProduct" class="text-xs font-semibold text-brand-darkbrown">Strawberry Royal Cake</p>
+          </div>
+        </div>
+
+        <!-- 4 Step Status Progress -->
+        <div class="mt-8">
+          <div class="grid grid-cols-4 gap-2 text-center">
+            
+            <div id="step-1" class="step-card flex flex-col items-center">
+              <div class="w-10 h-10 rounded-full flex items-center justify-center text-xs mb-2 transition bg-brand-darkbrown text-white">
+                <i class="fa-solid fa-receipt"></i>
+              </div>
+              <span class="text-[10px] uppercase font-bold" data-i18n="statusReceived">Qabul qilindi</span>
+            </div>
+
+            <div id="step-2" class="step-card flex flex-col items-center">
+              <div class="w-10 h-10 rounded-full flex items-center justify-center text-xs mb-2 transition bg-brand-pink text-brand-brown">
+                <i class="fa-solid fa-kitchen-set"></i>
+              </div>
+              <span class="text-[10px] uppercase font-bold" data-i18n="statusPreparing">Tayyorlanmoqda</span>
+            </div>
+
+            <div id="step-3" class="step-card flex flex-col items-center">
+              <div class="w-10 h-10 rounded-full flex items-center justify-center text-xs mb-2 transition bg-brand-pink text-brand-brown">
+                <i class="fa-solid fa-box-open"></i>
+              </div>
+              <span class="text-[10px] uppercase font-bold" data-i18n="statusReady">Qadoqlandi</span>
+            </div>
+
+            <div id="step-4" class="step-card flex flex-col items-center">
+              <div class="w-10 h-10 rounded-full flex items-center justify-center text-xs mb-2 transition bg-brand-pink text-brand-brown">
+                <i class="fa-solid fa-truck-fast"></i>
+              </div>
+              <span class="text-[10px] uppercase font-bold" data-i18n="statusDelivered">Yetkazildi</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= CONTACTS SECTION ================= -->
+  <section id="contacts" class="py-24 bg-brand-cream relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-5 space-y-8">
+          <div>
+            <span class="text-xs uppercase tracking-widest font-bold text-brand-rose" data-i18n="contactSubtitle">Biz Bilan Bog'lanish</span>
+            <h2 class="font-serif text-4xl sm:text-5xl font-bold text-brand-darkbrown mt-2" data-i18n="contactTitle">Sizni Butikimizda Kutamiz</h2>
+            <p class="text-xs text-brand-brown/70 mt-3 leading-relaxed" data-i18n="contactDesc">Savollaringiz bormi yoki individual eskiz asosida tort tayyorlamoqchimisiz? Bizga yozing yoki qo'ng'iroq qiling.</p>
+          </div>
+
+          <div class="space-y-4">
+            <a href="tel:+998901234567" class="flex items-center space-x-4 p-4 rounded-2xl bg-white shadow-sm border border-brand-rose/20 hover:shadow-md transition">
+              <div class="w-10 h-10 rounded-full bg-brand-pink flex items-center justify-center text-brand-rose">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <div>
+                <p class="text-[10px] uppercase font-bold text-brand-brown/60" data-i18n="contactPhone">Telefon raqam:</p>
+                <p class="text-sm font-bold text-brand-darkbrown">+998 (90) 136-76-37</p>
+              </div>
+            </a>
+
+            <a href="https://t.me/" target="_blank" class="flex items-center space-x-4 p-4 rounded-2xl bg-white shadow-sm border border-brand-rose/20 hover:shadow-md transition">
+              <div class="w-10 h-10 rounded-full bg-brand-pink flex items-center justify-center text-brand-rose">
+                <i class="fa-brands fa-telegram"></i>
+              </div>
+              <div>
+                <p class="text-[10px] uppercase font-bold text-brand-brown/60">Telegram:</p>
+                <p class="text-sm font-bold text-brand-darkbrown">@goldenstrawberryuz</p>
+              </div>
+            </a>
+
+            <a href="https://instagram.com/" target="_blank" class="flex items-center space-x-4 p-4 rounded-2xl bg-white shadow-sm border border-brand-rose/20 hover:shadow-md transition">
+              <div class="w-10 h-10 rounded-full bg-brand-pink flex items-center justify-center text-brand-rose">
+                <i class="fa-brands fa-instagram"></i>
+              </div>
+              <div>
+                <p class="text-[10px] uppercase font-bold text-brand-brown/60">Instagram:</p>
+                <p class="text-sm font-bold text-brand-darkbrown">@golden_strawberry.uz</p>
+              </div>
+            </a>
+
+            <div class="flex items-center space-x-4 p-4 rounded-2xl bg-white shadow-sm border border-brand-rose/20">
+              <div class="w-10 h-10 rounded-full bg-brand-pink flex items-center justify-center text-brand-rose">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div>
+                <p class="text-[10px] uppercase font-bold text-brand-brown/60" data-i18n="contactAddressLabel">Manzil:</p>
+                <p class="text-xs font-bold text-brand-darkbrown" data-i18n="contactAddress">Toshkent sh., Mirobod tumani, Amir Temur shox ko'chasi, 28-uy</p>
+              </div>
+            </div>
+
+            <div class="flex items-center space-x-4 p-4 rounded-2xl bg-white shadow-sm border border-brand-rose/20">
+              <div class="w-10 h-10 rounded-full bg-brand-pink flex items-center justify-center text-brand-rose">
+                <i class="fa-solid fa-clock"></i>
+              </div>
+              <div>
+                <p class="text-[10px] uppercase font-bold text-brand-brown/60" data-i18n="contactHoursLabel">Ish vaqti:</p>
+                <p class="text-xs font-bold text-brand-darkbrown" data-i18n="contactHours">Har kuni: 09:00 dan 21:00 gacha</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Simulated Map / Atelier Visual -->
+        <div class="lg:col-span-7">
+          <div class="rounded-3xl overflow-hidden shadow-luxury border-4 border-white h-96 relative bg-slate-200">
+            <!-- Leaflet/Google o'rniga nozik interaktiv xarita freymi -->
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2997.464687985458!2d69.27871237651034!3d41.30961807130985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b2d1a49f5a7%3A0xe5c3c0efdc6cfc87!2sAmir%20Temur%20Square!5e0!3m2!1sen!2suz!4v1700000000000!5m2!1sen!2suz" 
+              class="w-full h-full border-0" 
+              allowfullscreen="" 
+              loading="lazy">
+            </iframe>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-brand-darkbrown text-brand-cream/80 pt-16 pb-12 border-t border-brand-gold/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+        
+        <!-- Brand Info -->
+        <div class="space-y-4">
+          <div class="flex items-center space-x-2">
+            <i class="fa-solid fa-cake-candles text-2xl text-brand-gold"></i>
+            <span class="font-serif text-2xl font-bold tracking-wider text-white">Golden Strawberry</span>
+          </div>
+          <p class="text-xs leading-relaxed text-brand-cream/60" data-i18n="footerAbout">
+            Eng sara tabiiy mahsulotlardan tayyorlangan premium darajadagi fransuz va mualliflik qandolat mahsulotlari.
+          </p>
+          <div class="flex space-x-3 text-brand-cream/70 pt-2">
+            <a href="https://instagram.com" target="_blank" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-brand-gold hover:text-brand-darkbrown transition"><i class="fa-brands fa-instagram text-xs"></i></a>
+            <a href="https://t.me" target="_blank" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-brand-gold hover:text-brand-darkbrown transition"><i class="fa-brands fa-telegram text-xs"></i></a>
+            <a href="https://facebook.com" target="_blank" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-brand-gold hover:text-brand-darkbrown transition"><i class="fa-brands fa-facebook-f text-xs"></i></a>
+          </div>
+        </div>
+
+        <!-- Links -->
+        <div>
+          <p class="font-serif text-lg font-bold text-white mb-4" data-i18n="footerNavTitle">Bo'limlar</p>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#home" class="hover:text-brand-gold transition" data-i18n="navHome">Bosh sahifa</a></li>
+            <li><a href="#about" class="hover:text-brand-gold transition" data-i18n="navAbout">Biz haqimizda</a></li>
+            <li><a href="#cakes" class="hover:text-brand-gold transition" data-i18n="navCakes">Tortlar kolleksiyasi</a></li>
+            <li><a href="#gallery" class="hover:text-brand-gold transition" data-i18n="navGallery">Fotogalereya</a></li>
+            <li><a href="#prices" class="hover:text-brand-gold transition" data-i18n="navPrices">Narxlar ro'yxati</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact details -->
+        <div>
+          <p class="font-serif text-lg font-bold text-white mb-4" data-i18n="footerContactTitle">Aloqa</p>
+          <ul class="space-y-3 text-xs text-brand-cream/70">
+            <li class="flex items-center"><i class="fa-solid fa-phone text-brand-gold mr-3"></i> +998 (90) 123-45-67</li>
+            <li class="flex items-center"><i class="fa-solid fa-envelope text-brand-gold mr-3"></i> info@goldenstrawberry.uz</li>
+            <li class="flex items-center"><i class="fa-solid fa-location-dot text-brand-gold mr-3"></i> Toshkent, Mirobod t., 28</li>
+            <li class="flex items-center"><i class="fa-solid fa-clock text-brand-gold mr-3"></i> 09:00 - 21:00 (Har kuni)</li>
+          </ul>
+        </div>
+
+        <!-- Language in footer -->
+        <div>
+          <p class="font-serif text-lg font-bold text-white mb-4" data-i18n="footerLangTitle">Tilni Tanlang</p>
+          <div class="flex items-center space-x-2">
+            <button onclick="setLanguage('uz')" class="px-3 py-1.5 rounded-lg border border-white/20 text-xs hover:border-brand-gold transition">O'zbekcha</button>
+            <button onclick="setLanguage('ru')" class="px-3 py-1.5 rounded-lg border border-white/20 text-xs hover:border-brand-gold transition">Русский</button>
+            <button onclick="setLanguage('en')" class="px-3 py-1.5 rounded-lg border border-white/20 text-xs hover:border-brand-gold transition">English</button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-brand-cream/50 gap-4">
+        <p>&copy; 2026 Golden Strawberry. Barcha huquqlar himoyalangan.</p>
+        <p class="font-serif italic">Crafted with passion & strawberry delight.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ================= TOAST NOTIFICATION ================= -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-32 opacity-0 transition-all duration-300 pointer-events-none">
+    <div class="bg-brand-darkbrown text-brand-cream px-6 py-4 rounded-2xl shadow-2xl flex items-center space-x-3 border border-brand-gold/30">
+      <div id="toastIcon" class="text-brand-gold text-lg">
+        <i class="fa-solid fa-circle-check"></i>
+      </div>
+      <div>
+        <p id="toastTitle" class="text-xs font-bold text-white">Muvaffaqiyatli!</p>
+        <p id="toastMsg" class="text-[11px] text-brand-cream/70">Buyurtmangiz qabul qilindi.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll To Top Button -->
+  <button id="scrollTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-6 left-6 z-40 w-11 h-11 rounded-full bg-brand-darkbrown text-brand-gold shadow-luxury flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:scale-110" aria-label="Yuqoriga">
+    <i class="fa-solid fa-arrow-up text-sm"></i>
+  </button>
+
+  <!-- ================= JAVASCRIPT LOGIC ================= -->
+  <script>
+    /* ================= 1. TRILINGUAL LOCALIZATION DATA ================= */
+    const translations = {
+      uz: {
+        logoSub: "Haute Pâtisserie",
+        navHome: "Bosh sahifa",
+        navAbout: "Biz haqimizda",
+        navCakes: "Tortlar",
+        navGallery: "Galereya",
+        navPrices: "Narxlar",
+        navReviews: "Fikrlar",
+        navOrders: "Kuzatish",
+        navContacts: "Bog'lanish",
+        btnOrderNow: "Buyurtma berish",
+        langLabel: "Tilni tanlang:",
+        heroBadge: "Premium qo'l mehnati shirinliklari",
+        heroTagline: "Har bir lahzaga nafis ta'm baxsh etamiz",
+        heroDesc: "Tabiiy mevalar, Belgiyaning eng sara shokoladi va nozik fransuz kremlari uyg'unligidagi eksklyuziv tortlar. Sizning unutilmas to'y, bayram va tavallud ayyomingiz uchun maxsus tayyorlanadi.",
+        btnViewCakes: "Tortlarni ko'rish",
+        statNatural: "Tabiiy Masalliq",
+        statHappy: "Mamnun Mijozlar",
+        statRating: "A'lo Baho",
+        heroImgLabel: "Artisan Creation",
+        heroImgName: "Qirollik Qulupnayi",
+        floatingBadgeTitle: "Qo'l mehnati muhabbati",
+        floatingBadgeSub: "Har kun yangi pishiriladi",
+        aboutSubtitle: "Bizning Hikoyamiz",
+        aboutTitle: "Shirinliklarimiz — Sizning unutilmas his-tuyg'ularingiz",
+        aboutP1: "Golden Strawberry — bu oddiy shirinlikxona emas, bu nozik lazzat va go'zallik san'ati uyg'unlashgan butikdir. Biz har bir mahsulotni faqat eng sara va tabiiy masalliqlar, saralangan qulupnaylar, haqiqiy qaymoq va Belgiya shokoladidan tayyorlaymiz.",
+        aboutP2: "Biz sizning eng quvonchli bayramlaringiz uchun eksklyuziv shirinliklar yaratamiz:",
+        occBirthday: "Tug'ilgan kunlar",
+        occWedding: "To'y marosimlari",
+        occAnniversary: "Yubileylar",
+        occGifts: "Nafis sovg'alar",
+        occRomantic: "Maxsus sanalar",
+        occCorporate: "VIP tadbirlar",
+        catalogSubtitle: "Eksklyuziv Kolleksiya",
+        catalogTitle: "Bizning Mahsulotlar",
+        catAll: "Barchasi",
+        catCakes: "Klassik Tortlar",
+        catBento: "Bento Tortlar",
+        catWedding: "To'y Tortlari",
+        catDesserts: "Desertlar",
+        btnOrder: "Buyurtma",
+        btnDetails: "Batafsil",
+        modalWeightLabel: "Hajmi / Og'irligi:",
+        modalIngredientsLabel: "Tarkibi:",
+        modalQtyLabel: "Miqdori:",
+        btnOrderDirect: "Hoziroq buyurtma berish",
+        gallerySubtitle: "Bizning Ijodimiz",
+        galleryTitle: "Fotogalereya",
+        galleryHint: "Rasmni kattaroq ko'rish uchun ustiga bosing",
+        priceSubtitle: "Shakllar va O'lchamlar",
+        priceTitle: "Shaffof Narxlarimiz",
+        priceDesc: "Barcha tortlarimiz eng oliy sifatli tabiiy ingredientlar bilan pishiriladi",
+        price1Title: "Mini / Bento",
+        price1Sub: "1-2 kishi uchun yoqimli sovg'a",
+        price1F1: "Vazni: 400 - 500 gramm",
+        price1F2: "Diametri: 10 - 12 sm",
+        price1F3: "Maxsus qadoq va shamcha",
+        price1F4: "Oddiy yozuv bepul",
+        price2Title: "Medium (Oila)",
+        price2Sub: "6-8 kishilik oilaviy bayramlar",
+        price2F1: "Vazni: 1.2 - 1.5 kg",
+        price2F2: "Diametri: 18 - 20 sm",
+        price2F3: "Yangi mevalar bezagi",
+        price2F4: "Maxsus tabriknoma",
+        price3Title: "Large (Katta)",
+        price3Sub: "12-16 kishilik katta do'stlar davrasi",
+        price3F1: "Vazni: 2.2 - 2.8 kg",
+        price3F2: "Diametri: 24 - 26 sm",
+        price3F3: "Premium shokolad va mevalar",
+        price3F4: "Shahar bo'ylab bepul yetkazish",
+        price4Title: "To'y / VIP",
+        price4Sub: "Ko'p qavatli individual dizayn",
+        priceFrom: "dan ",
+        price4F1: "2-4 qavatli (3.5 kg dan boshlab)",
+        price4F2: "Tirak konstruksiya va sovutgich",
+        price4F3: "Tirik gullar va oltin qoplam",
+        price4F4: "Maxsus konditer servis yetkazish",
+        btnChoose: "Tanlash",
+        reviewsSubtitle: "Mijozlarimiz Bahosi",
+        reviewsTitle: "Haqiqiy Fikrlar",
+        btnAddReview: "Fikr qoldirish",
+        reviewModalTitle: "Fikringizni qoldiring",
+        reviewModalDesc: "Sizning fikringiz biz uchun juda qadrli",
+        reviewFieldName: "Ismingiz *",
+        reviewFieldRating: "Bahoingiz",
+        reviewFieldText: "Fikringiz *",
+        reviewFieldPhoto: "Rasm havolasi (ixtiyoriy)",
+        btnSendReview: "Yuborish",
+        orderSubtitle: "Onlayn Buyurtma",
+        orderTitle: "O'z orzuingizdagi tortni tanlang",
+        orderDesc: "Formani to'ldiring, menejerimiz 15 daqiqada siz bilan bog'lanadi",
+        formName: "Ismingiz *",
+        formPhone: "Telefon raqamingiz *",
+        formProduct: "Mahsulot nomi *",
+        formSize: "Tort o'lchami",
+        formDate: "Yetkazib berish sanasi *",
+        formTime: "Vaqti",
+        formMessage: "Tortdagi yozuv yoki maxsus tilaklar",
+        btnPlaceOrder: "Buyurtmani tasdiqlash",
+        trackSubtitle: "Real Vaqt Rejimida",
+        trackTitle: "Buyurtmangizni Kuzating",
+        trackDesc: "Sizga berilgan buyurtma raqamini kiriting (Masalan: GS-1001)",
+        btnTrack: "Tekshirish",
+        trackOrderNumLabel: "Buyurtma Raqami:",
+        trackProductLabel: "Mahsulot:",
+        statusReceived: "Qabul qilindi",
+        statusPreparing: "Tayyorlanmoqda",
+        statusReady: "Qadoqlandi",
+        statusDelivered: "Yetkazildi",
+        contactSubtitle: "Biz Bilan Bog'lanish",
+        contactTitle: "Sizni Butikimizda Kutamiz",
+        contactDesc: "Savollaringiz bormi yoki individual eskiz asosida tort tayyorlamoqchimisiz? Bizga yozing yoki qo'ng'iroq qiling.",
+        contactPhone: "Telefon raqam:",
+        contactAddressLabel: "Manzil:",
+        contactAddress: "Toshkent sh., Mirobod tumani, Amir Temur shox ko'chasi, 28-uy",
+        contactHoursLabel: "Ish vaqti:",
+        contactHours: "Har kuni: 09:00 dan 21:00 gacha",
+        footerAbout: "Eng sara tabiiy mahsulotlardan tayyorlangan premium darajadagi fransuz va mualliflik qandolat mahsulotlari.",
+        footerNavTitle: "Bo'limlar",
+        footerContactTitle: "Aloqa",
+        footerLangTitle: "Tilni Tanlang"
+      },
+      ru: {
+        logoSub: "Haute Pâtisserie",
+        navHome: "Главная",
+        navAbout: "О нас",
+        navCakes: "Торты",
+        navGallery: "Галерея",
+        navPrices: "Цены",
+        navReviews: "Отзывы",
+        navOrders: "Отслеживание",
+        navContacts: "Контакты",
+        btnOrderNow: "Заказать сейчас",
+        langLabel: "Выберите язык:",
+        heroBadge: "Премиальные десерты ручной работы",
+        heroTagline: "Создаем изысканный вкус для каждого мгновения",
+        heroDesc: "Эксклюзивные торты из натуральных ягод, отборного бельгийского шоколада и нежных французских кремов. Созданы специально для ваших свадеб, дней рождения и торжеств.",
+        btnViewCakes: "Смотреть торты",
+        statNatural: "Натуральные ингредиенты",
+        statHappy: "Счастливых клиентов",
+        statRating: "Рейтинг качества",
+        heroImgLabel: "Artisan Creation",
+        heroImgName: "Королевская Клубника",
+        floatingBadgeTitle: "Создано с любовью",
+        floatingBadgeSub: "Свежая выпечка каждый день",
+        aboutSubtitle: "Наша История",
+        aboutTitle: "Наши десерты — Ваши незабываемые эмоции",
+        aboutP1: "Golden Strawberry — это не просто кондитерская, а бутик утонченного вкуса и кондитерского искусства. Мы используем только натуральные ингредиенты: свежие ягоды, натуральные сливки и подлинный бельгийский шоколад.",
+        aboutP2: "Мы создаем эксклюзивные шедевры для самых важных поводов:",
+        occBirthday: "Дни рождения",
+        occWedding: "Свадебные торжества",
+        occAnniversary: "Юбилеи",
+        occGifts: "Изящные подарки",
+        occRomantic: "Особые свидания",
+        occCorporate: "VIP события",
+        catalogSubtitle: "Эксклюзивная Коллекция",
+        catalogTitle: "Наша Продукция",
+        catAll: "Все",
+        catCakes: "Классические Торты",
+        catBento: "Бенто Торты",
+        catWedding: "Свадебные",
+        catDesserts: "Десерты",
+        btnOrder: "Заказать",
+        btnDetails: "Подробнее",
+        modalWeightLabel: "Вес / Размер:",
+        modalIngredientsLabel: "Состав:",
+        modalQtyLabel: "Количество:",
+        btnOrderDirect: "Заказать прямо сейчас",
+        gallerySubtitle: "Наше Творчество",
+        galleryTitle: "Фотогалерея",
+        galleryHint: "Нажмите на фото для полноэкранного просмотра",
+        priceSubtitle: "Размеры и Форматы",
+        priceTitle: "Прозрачные Цены",
+        priceDesc: "Каждый торт выпекается исключительно из ингредиентов высшего качества",
+        price1Title: "Мини / Бенто",
+        price1Sub: "Идеальный подарок на 1-2 персоны",
+        price1F1: "Вес: 400 - 500 грамм",
+        price1F2: "Диаметр: 10 - 12 см",
+        price1F3: "Упаковка, свеча и ложечка",
+        price1F4: "Любая надпись бесплатно",
+        price2Title: "Medium (Семейный)",
+        price2Sub: "На 6-8 персон для праздника",
+        price2F1: "Вес: 1.2 - 1.5 кг",
+        price2F2: "Диаметр: 18 - 20 см",
+        price2F3: "Декор из свежих ягод",
+        price2F4: "Фирменная открытка",
+        price3Title: "Large (Большой)",
+        price3Sub: "На 12-16 персон для пышного торжества",
+        price3F1: "Вес: 2.2 - 2.8 кг",
+        price3F2: "Диаметр: 24 - 26 см",
+        price3F3: "Премиальный шоколад и декор",
+        price3F4: "Бесплатная доставка по городу",
+        price4Title: "Свадебный / VIP",
+        price4Sub: "Многоярусный индивидуальный дизайн",
+        priceFrom: "от ",
+        price4F1: "2-4 яруса (от 3.5 кг)",
+        price4F2: "Специальная конструкция и охлаждение",
+        price4F3: "Живые цветы и сусальное золото",
+        price4F4: "Сопровождение шеф-кондитером",
+        btnChoose: "Выбрать",
+        reviewsSubtitle: "Оценки Гостей",
+        reviewsTitle: "Отзывы Клиентов",
+        btnAddReview: "Оставить отзыв",
+        reviewModalTitle: "Ваш отзыв",
+        reviewModalDesc: "Нам очень важно ваше мнение",
+        reviewFieldName: "Ваше имя *",
+        reviewFieldRating: "Оценка",
+        reviewFieldText: "Ваш комментарий *",
+        reviewFieldPhoto: "Ссылка на фото (необязательно)",
+        btnSendReview: "Отправить",
+        orderSubtitle: "Онлайн Заказ",
+        orderTitle: "Выберите торт своей мечты",
+        orderDesc: "Заполните форму, и наш менеджер свяжется с вами в течение 15 минут",
+        formName: "Ваше имя *",
+        formPhone: "Номер телефона *",
+        formProduct: "Название торта *",
+        formSize: "Размер торта",
+        formDate: "Дата доставки *",
+        formTime: "Время",
+        formMessage: "Надпись на торте или пожелания",
+        btnPlaceOrder: "Подтвердить заказ",
+        trackSubtitle: "В реальном времени",
+        trackTitle: "Отслеживание Заказа",
+        trackDesc: "Введите номер заказа (например: GS-1001 или новый созданный код)",
+        btnTrack: "Проверить",
+        trackOrderNumLabel: "Номер Заказа:",
+        trackProductLabel: "Продукт:",
+        statusReceived: "Принят",
+        statusPreparing: "Готовится",
+        statusReady: "Упакован",
+        statusDelivered: "Доставлен",
+        contactSubtitle: "Связаться с Нами",
+        contactTitle: "Ждем Вас в Нашем Бутике",
+        contactDesc: "Есть вопросы или хотите индивидуальный дизайн? Напишите или позвоните нам прямо сейчас.",
+        contactPhone: "Номер телефона:",
+        contactAddressLabel: "Адрес:",
+        contactAddress: "г. Ташкент, Мирабадский р-н, проспект Амира Темура, 28",
+        contactHoursLabel: "Время работы:",
+        contactHours: "Ежедневно: с 09:00 до 21:00",
+        footerAbout: "Французские и авторские кондитерские шедевры премиум-класса из лучших натуральных ингредиентов.",
+        footerNavTitle: "Разделы",
+        footerContactTitle: "Контакты",
+        footerLangTitle: "Язык сайта"
+      },
+      en: {
+        logoSub: "Haute Pâtisserie",
+        navHome: "Home",
+        navAbout: "About Us",
+        navCakes: "Cakes",
+        navGallery: "Gallery",
+        navPrices: "Prices",
+        navReviews: "Reviews",
+        navOrders: "Tracking",
+        navContacts: "Contacts",
+        btnOrderNow: "Order Now",
+        langLabel: "Select Language:",
+        heroBadge: "Handcrafted Luxury Confectionery",
+        heroTagline: "Infusing Elegance into Every Sweet Moment",
+        heroDesc: "Signature cakes combining fresh organic strawberries, fine Belgian chocolate, and delicate French creams. Tailored specifically for weddings, anniversaries, and precious celebrations.",
+        btnViewCakes: "Explore Cakes",
+        statNatural: "Natural Ingredients",
+        statHappy: "Delighted Clients",
+        statRating: "Top Rating",
+        heroImgLabel: "Artisan Creation",
+        heroImgName: "Royal Strawberry Delight",
+        floatingBadgeTitle: "Crafted with Passion",
+        floatingBadgeSub: "Freshly baked each morning",
+        aboutSubtitle: "Our Heritage",
+        aboutTitle: "Artisanal Cakes That Transform Celebrations",
+        aboutP1: "Golden Strawberry is not merely a bakery; it is a sanctuary of refined flavor and Parisian pastry artistry. We meticulously select handpicked berries, 100% dairy creams, and world-renowned Belgian chocolate.",
+        aboutP2: "We specialize in bespoke cakes for life's most unforgettable milestones:",
+        occBirthday: "Birthdays",
+        occWedding: "Weddings",
+        occAnniversary: "Anniversaries",
+        occGifts: "Luxury Gifts",
+        occRomantic: "Romantic Dates",
+        occCorporate: "VIP Events",
+        catalogSubtitle: "Exclusive Collection",
+        catalogTitle: "Our Products",
+        catAll: "All",
+        catCakes: "Classic Cakes",
+        catBento: "Bento Cakes",
+        catWedding: "Wedding Cakes",
+        catDesserts: "Desserts",
+        btnOrder: "Order",
+        btnDetails: "Details",
+        modalWeightLabel: "Weight / Size:",
+        modalIngredientsLabel: "Ingredients:",
+        modalQtyLabel: "Quantity:",
+        btnOrderDirect: "Order Immediately",
+        gallerySubtitle: "Our Masterpieces",
+        galleryTitle: "Photo Gallery",
+        galleryHint: "Click any image for full-screen showcase",
+        priceSubtitle: "Sizes & Portions",
+        priceTitle: "Transparent Pricing",
+        priceDesc: "All our cakes are made with zero preservatives and premier natural ingredients",
+        price1Title: "Mini / Bento",
+        price1Sub: "Charming gift for 1-2 people",
+        price1F1: "Weight: 400 - 500 grams",
+        price1F2: "Diameter: 10 - 12 cm",
+        price1F3: "Boutique box & candle included",
+        price1F4: "Free custom inscription",
+        price2Title: "Medium (Family)",
+        price2Sub: "Serves 6-8 guests gracefully",
+        price2F1: "Weight: 1.2 - 1.5 kg",
+        price2F2: "Diameter: 18 - 20 cm",
+        price2F3: "Fresh berry crown design",
+        price2F4: "Complimentary greeting card",
+        price3Title: "Large (Celebration)",
+        price3Sub: "Serves 12-16 guests",
+        price3F1: "Weight: 2.2 - 2.8 kg",
+        price3F2: "Diameter: 24 - 26 cm",
+        price3F3: "Premium chocolate and toppings",
+        price3F4: "Free citywide delivery",
+        price4Title: "Wedding / Haute Couture",
+        price4Sub: "Multi-tiered bespoke art piece",
+        priceFrom: "from ",
+        price4F1: "2-4 tiers (from 3.5 kg)",
+        price4F2: "Reinforced structure & cooling van",
+        price4F3: "Fresh florals & 24K edible gold",
+        price4F4: "On-site pastry chef support",
+        btnChoose: "Select",
+        reviewsSubtitle: "Client Testimonials",
+        reviewsTitle: "Verified Reviews",
+        btnAddReview: "Write Review",
+        reviewModalTitle: "Share Your Experience",
+        reviewModalDesc: "Your feedback inspires our pastry perfection",
+        reviewFieldName: "Your Name *",
+        reviewFieldRating: "Rating",
+        reviewFieldText: "Your Comment *",
+        reviewFieldPhoto: "Photo URL (optional)",
+        btnSendReview: "Submit",
+        orderSubtitle: "Online Atelier",
+        orderTitle: "Design Your Dream Cake",
+        orderDesc: "Complete the form and our concierge will contact you within 15 minutes",
+        formName: "Full Name *",
+        formPhone: "Phone Number *",
+        formProduct: "Selected Cake *",
+        formSize: "Portion Size",
+        formDate: "Delivery Date *",
+        formTime: "Delivery Time",
+        formMessage: "Inscription or Custom Requests",
+        btnPlaceOrder: "Confirm Order",
+        trackSubtitle: "Real-Time Tracking",
+        trackTitle: "Track Your Order",
+        trackDesc: "Enter your order tracking number (e.g., GS-1001)",
+        btnTrack: "Verify",
+        trackOrderNumLabel: "Order Number:",
+        trackProductLabel: "Product:",
+        statusReceived: "Received",
+        statusPreparing: "Preparing",
+        statusReady: "Boxed",
+        statusDelivered: "Delivered",
+        contactSubtitle: "Get in Touch",
+        contactTitle: "Visit Our Boutique Atelier",
+        contactDesc: "Questions or bespoke requests? Contact us through any channel below.",
+        contactPhone: "Phone line:",
+        contactAddressLabel: "Address:",
+        contactAddress: "28 Amir Temur Avenue, Mirabad District, Tashkent",
+        contactHoursLabel: "Opening hours:",
+        contactHours: "Daily: 09:00 AM – 09:00 PM",
+        footerAbout: "Artisanal boutique pastries and French-inspired confectionery crafted from pristine organic ingredients.",
+        footerNavTitle: "Navigation",
+        footerContactTitle: "Contact Info",
+        footerLangTitle: "Language"
+      }
+    };
+
+    let currentLang = 'uz';
+
+    /* ================= 2. PRODUCTS DATA (12 Products) ================= */
+    const products = [
+      {
+        id: 1,
+        category: "cakes",
+        name: { uz: "Strawberry Royal Cake", ru: "Strawberry Royal Cake", en: "Strawberry Royal Cake" },
+        desc: { 
+          uz: "Yangi terilgan qulupnaylar, vanilli biskvit va yengil Mascarpone kremi.", 
+          ru: "Свежая клубника, воздушный ванильный бисквит и крем на основе Маскарпоне.", 
+          en: "Freshly harvested strawberries, airy vanilla sponge, and light Mascarpone cream." 
+        },
+        ingredients: {
+          uz: "Tuxum, vanil ekstrakti, un, Mascarpone, yangi qulupnay, tabiiy qaymoq",
+          ru: "Яйца, экстракт ванили, мука, Маскарпоне, свежая клубника, сливки 33%",
+          en: "Eggs, vanilla extract, flour, Mascarpone, fresh strawberries, dairy cream"
+        },
+        price: 280000,
+        weight: "1.5 kg",
+        img: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=700&q=80"
+      },
+      {
+        id: 2,
+        category: "cakes",
+        name: { uz: "Red Velvet Supreme", ru: "Красный Бархат Supreme", en: "Red Velvet Supreme" },
+        desc: { 
+          uz: "Mashhur qizil biskvit, nozik krem-chiz va mevali qatlam.", 
+          ru: "Классический бархатный бисквит с благородным крем-чизом и ягодным конфи.", 
+          en: "Velvety crimson sponge with rich cream cheese frosting and berry coulis." 
+        },
+        ingredients: {
+          uz: "Kakao, qaymoqli pishloq, sariyog', un, morodina sousi",
+          ru: "Какао, крем-чиз, сливочное масло, мука, ягодная прослойка",
+          en: "Cocoa, cream cheese, butter, organic flour, berry filling"
+        },
+        price: 260000,
+        weight: "1.4 kg",
+        img: "https://images.unsplash.com/photo-1586788680434-30d324b2d46f?auto=format&fit=crop&w=700&q=80"
+      },
+      {
+        id: 3,
+        category: "cakes",
+        name: { uz: "Belgian Chocolate Truffle", ru: "Бельгийский Шоколадный Трюфель", en: "Belgian Chocolate Truffle" },
+        desc: { 
+          uz: "70% li haqiqiy qora Belgiya shokoladi ganashi va nam biskvit.", 
+          ru: "Насыщенный ганаш из 70% бельгийского шоколада и влажный шоколадный бисквит.", 
+          en: "Decadent 70% dark Belgian chocolate ganache with moist cocoa layers." 
+        },
+        ingredients: {
+          uz: "Belgiya shokoladi, kakao, quyuq qaymoq, espresso tomchisi",
+          ru: "Бельгийский шоколад, натуральное какао, сливки, капля эспрессо",
+          en: "Belgian chocolate, natural cocoa, double cream, espresso touch"
+        },
+        price: 320000,
+        weight: "1.6 kg",
+        img: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80"
+      },
+      {
+        id: 4,
+        category: "cakes",
+        name: { uz: "Wild Berry Chantilly", ru: "Лесная Ягода Шантильи", en: "Wild Berry Chantilly" },
+        desc: { 
+          uz: "Malina, ko'k mevalar va qulupnayning Chantilly kremi bilan simfoniyasi.", 
+          ru: "Малина, голубика и клубника в сочетании с воздушным кремом Шантильи.", 
+          en: "Wild blackberries, blueberries and strawberries topped with Chantilly cream." 
+        },
+        ingredients: {
+          uz: "Yangi o'rmon mevalari, nozik biskvit, fransuz Chantilly kremi",
+          ru: "Свежие ягоды, бисквит, французский крем Шантильи",
+          en: "Fresh forest berries, delicate sponge, French Chantilly cream"
+        },
+        price: 310000,
+        weight: "1.5 kg",
+        img: "https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=700&q=80"
+      },
+      {
+        id: 5,
+        category: "cakes",
+        name: { uz: "Royal Honey Cake (Medovik)", ru: "Королевский Медовик", en: "Royal Honey Medovik" },
+        desc: { 
+          uz: "Tog' asalidan tayyorlangan 10 qatlamli xushbo'y qatlam va smetana kremi.", 
+          ru: "10 тончайших карамельно-медовых коржей со сливочно-сметанным кремом.", 
+          en: "10 thin mountain honey layers soaked in silky cultured cream." 
+        },
+        ingredients: {
+          uz: "Tabiiy tog' asali, smetana, nozik un, vanil",
+          ru: "Горный мед, фермерская сметана, мука, стручковая ваниль",
+          en: "Raw honey, cultured cream, organic flour, vanilla pod"
+        },
+        price: 240000,
+        weight: "1.5 kg",
+        img: "https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?auto=format&fit=crop&w=700&q=80"
+      },
+      {
+        id: 6,
+        category: "cakes",
+        name: { uz: "Pistachio Raspberry Delice", ru: "Фисташка-Малина Delice", en: "Pistachio Raspberry Delice" },
+        desc: { 
+          uz: "Eron pista pastasi, nordon malina muss qatlami va oq shokolad.", 
+          ru: "Иранская фисташковая паста, мусс из сочной малины и белый бельгийский шоколад.", 
+          en: "Iranian pistachio praline, tart raspberry coulis, and white chocolate mousse." 
+        },
+        ingredients: {
+          uz: "Pista pastasi, malina, oq shokolad, bodom uni",
+          ru: "Фисташковая паста, свежая малина, белый шоколад, миндальная мука",
+          en: "Pistachio paste, raspberries, white chocolate, almond flour"
+        },
+        price: 350000,
+        weight: "1.4 kg",
+        img: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=700&q=80"
+      },
+      {
+        id: 7,
+        category: "wedding",
+        name: { uz: "Grand Wedding Symphony", ru: "Grand Wedding Symphony", en: "Grand Wedding Symphony" },
+        desc: { 
+          uz: "3 qavatli to'y durdonasi, oq gullar va qutlug' oltin barglari bilan bezatilgan.", 
+          ru: "3-ярусный свадебный шедевр с живыми цветами и пищевым золотом 24 карата.", 
+          en: "3-tiered wedding centerpiece embellished with organic florals and edible gold leaf." 
+        },
+        ingredients: {
+          uz: "Bodomli biskvit, qulupnayli konfi, oq shokolad veluri, oltin zarhal",
+          ru: "Миндальный бисквит, клубничное конфи, велюр из белого шоколада, золото",
+          en: "Almond sponge, strawberry confit, white chocolate velvet, 24k gold"
+        },
+        price: 950000,
+        weight: "4.5 kg",
+        img: "https://images.unsplash.com/photo-1535254973040-607b474cb50d?auto=format&fit=crop&w=700&q=80"
+      },
+      {
+        id: 8,
+        category: "wedding",
+        name: { uz: "Blush Rose Wedding Tier", ru: "Blush Rose Свадебный", en: "Blush Rose Wedding Tier" },
+        desc: { 
+          uz: "Nafis pushti rang tusdagi 2 qavatli to'y torti, fransuz krem-bryule bilan.", 
+          ru: "Двухъярусный нежно-розовый свадебный торт с прослойкой крем-брюле.", 
+          en: "Two-tier pastel blush wedding cake with delicate crème brûlée interior." 
+        },
+        ingredients: {
+          uz: "Vanil, qaymoqli krem-bryule, pishloqli qatlam, atirgul bezaklari",
+          ru: "Ваниль, крем-брюле, сливочный сыр, флористический декор",
+          en: "Vanilla, crème brûlée layer, cream cheese, delicate floral accents"
+        },
+        price: 750000,
+        weight: "3.2 kg",
+        img: "https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=700&q=80"
+      },
+      {
+        id: 9,
+        category: "bento",
+        name: { uz: "Strawberry Bento Dream", ru: "Бенто Клубничная Мечта", en: "Strawberry Bento Dream" },
+        desc: { 
+          uz: "Yurak shaklidagi yozuvli mini bento tort, 1-2 kishi uchun ajoyib sovg'a.", 
+          ru: "Мини-торт в ланчбоксе с индивидуальной надписью и клубникой.", 
+          en: "Individual lunchbox bento cake with personalized heart inscription." 
+        },
+        ingredients: {
+          uz: "Krem-chiz, vanil biskviti, qulupnay jemi",
+          ru: "Крем-чиз, ванильный бисквит, клубничный джем",
+          en: "Cream cheese frosting, vanilla sponge, strawberry compote"
+        },
+        price: 130000,
+        weight: "450 g",
+        img: "https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&w=700&q=80"
+      },
+      {
+        id: 10,
+        category: "desserts",
+        name: { uz: "New York Strawberry Cheesecake", ru: "Чизкейк Нью-Йорк с Клубникой", en: "New York Strawberry Cheesecake" },
+        desc: { 
+          uz: "Klassik pishirilgan Filadelfiya chizkeyki, yangi qulupnay qoplamasi bilan.", 
+          ru: "Классический запеченный чизкейк из сыра Филадельфия со свежей клубникой.", 
+          en: "Authentic baked Philadelphia cheesecake glazed with wild strawberry reduction." 
+        },
+        ingredients: {
+          uz: "Filadelfiya pishlog'i, qumoq xamir, saralangan qulupnay",
+          ru: "Сыр Филадельфия, песочная основа, отборная клубника",
+          en: "Philadelphia cream cheese, shortbread crust, glazed strawberries"
+        },
+        price: 270000,
+        weight: "1.3 kg",
+        img: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=700&q=80"
+      },
+      {
+        id: 11,
+        category: "desserts",
+        name: { uz: "Chocolate Dipped Strawberries", ru: "Клубника в Бельгийском Шоколаде", en: "Chocolate Dipped Strawberries" },
+        desc: { 
+          uz: "Belgiya sutli va oq shokoladiga botirilgan 16 dona yirik qulupnay qutisi.", 
+          ru: "Набор из 16 крупных ягод клубники в бельгийском молочном и белом шоколаде.", 
+          en: "Luxury gift box of 16 giant strawberries dipped in Belgian chocolate." 
+        },
+        ingredients: {
+          uz: "Saralangan yirik qulupnay, Callebaut shokoladi, kokos qirindisi",
+          ru: "Крупная клубника, шоколад Callebaut, кокосовая стружка",
+          en: "Jumbo strawberries, Callebaut chocolate, coconut flakes"
+        },
+        price: 190000,
+        weight: "500 g",
+        img: "https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&fit=crop&w=700&q=80"
+      },
+      {
+        id: 12,
+        category: "desserts",
+        name: { uz: "French Macarons Box", ru: "Набор Французских Макаронс", en: "French Macarons Box" },
+        desc: { 
+          uz: "Bodom unidan pishirilgan 12 dona fransuz makarunlari assortisi.", 
+          ru: "12 изысканных пирожных макарон на миндальной муке с разными начинками.", 
+          en: "Artisanal collection of 12 French almond macarons with assorted ganache." 
+        },
+        ingredients: {
+          uz: "100% bodom uni, qulupnay, pista, shokolad, marakuya ganashi",
+          ru: "100% миндальная мука, клубника, фисташка, маракуйя",
+          en: "100% almond flour, strawberry, pistachio, passionfruit ganache"
+        },
+        price: 160000,
+        weight: "350 g",
+        img: "https://images.unsplash.com/photo-1569864321390-dc8a2455799c?auto=format&fit=crop&w=700&q=80"
+      }
+    ];
+
+    /* ================= 3. GALLERY DATA ================= */
+    const galleryItems = [
+      { url: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=900&q=80", title: "Royal Strawberry Delight" },
+      { url: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=80", title: "Belgian Chocolate Truffle" },
+      { url: "https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=900&q=80", title: "Wild Berry Extravaganza" },
+      { url: "https://images.unsplash.com/photo-1586788680434-30d324b2d46f?auto=format&fit=crop&w=900&q=80", title: "Red Velvet Romance" },
+      { url: "https://images.unsplash.com/photo-1535254973040-607b474cb50d?auto=format&fit=crop&w=900&q=80", title: "Tiered Wedding Splendor" },
+      { url: "https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&w=900&q=80", title: "Bento Celebration" },
+      { url: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=900&q=80", title: "Pistachio Raspberry Fusion" },
+      { url: "https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&fit=crop&w=900&q=80", title: "Gourmet Dipped Berries" },
+      { url: "https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?auto=format&fit=crop&w=900&q=80", title: "Honey Velvet Medovik" },
+      { url: "https://images.unsplash.com/photo-1569864321390-dc8a2455799c?auto=format&fit=crop&w=900&q=80", title: "Artisan Macarons" },
+      { url: "https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=900&q=80", title: "Pastel Wedding Floral" },
+      { url: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=900&q=80", title: "Signature Cheesecake" }
+    ];
+
+    /* ================= 4. INITIAL REVIEWS & STORAGE ================= */
+    const defaultReviews = [
+      {
+        id: 1,
+        name: "Nilufar Rahimova",
+        rating: 5,
+        text: "Singlimning to'yi uchun 3 qavatli buyurtma bergan edik. Mehmonlarning barchasi ta'miga va go'zalligiga qoyil qolishdi! Ayniqsa qulupnaylari nihoyatda yangi va xushbo'y ekan.",
+        photo: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
+        date: "2026-02-14"
+      },
+      {
+        id: 2,
+        name: "Алексей Смирнов",
+        rating: 5,
+        text: "Заказывал шоколадный трюфель на юбилей супруги. Доставили точно в назначенный час в идеальной охлаждающей коробке. Вкус настоящего бельгийского шоколада!",
+        photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
+        date: "2026-03-01"
+      },
+      {
+        id: 3,
+        name: "Jasur & Kamola",
+        rating: 5,
+        text: "Bento tortcha ajoyib chiqdi, aynan rasmdagidek! Qadoqlanishi juda nafis va qimmatbaho ko'rinadi. Rahmat sizlarga!",
+        photo: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=200&q=80",
+        date: "2026-03-20"
+      }
+    ];
+
+    /* ================= 5. MOCK ORDERS STORAGE ================= */
+    const defaultOrders = {
+      "GS-1001": { id: "GS-1001", product: "Strawberry Royal Cake", status: 2 },
+      "GS-1002": { id: "GS-1002", product: "Grand Wedding Symphony", status: 3 },
+      "GS-1003": { id: "GS-1003", product: "Strawberry Bento Dream", status: 4 }
+    };
+
+    /* Init LocalStorage */
+    if (!localStorage.getItem('gs_reviews')) {
+      localStorage.setItem('gs_reviews', JSON.stringify(defaultReviews));
+    }
+    if (!localStorage.getItem('gs_orders')) {
+      localStorage.setItem('gs_orders', JSON.stringify(defaultOrders));
+    }
+
+    /* ================= 6. RENDER LOGIC ================= */
+    function renderProducts(category = 'all') {
+      const grid = document.getElementById('productsGrid');
+      grid.innerHTML = '';
+
+      const filtered = category === 'all' ? products : products.filter(p => p.category === category);
+
+      filtered.forEach(p => {
+        const title = p.name[currentLang];
+        const desc = p.desc[currentLang];
+        const formattedPrice = Number(p.price).toLocaleString() + ' UZS';
+
+        const card = document.createElement('div');
+        card.className = "bg-white rounded-3xl overflow-hidden shadow-luxury border border-brand-rose/20 flex flex-col justify-between group hover:-translate-y-1.5 transition-all duration-300";
+        card.innerHTML = `
+          <div class="relative overflow-hidden h-56 cursor-pointer" onclick="openProductModal(${p.id})">
+            <img src="${p.img}" alt="${title}" class="w-full h-full object-cover group-hover:scale-108 transition duration-500">
+            <div class="absolute top-3 right-3 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider text-brand-darkbrown">
+              ${p.weight}
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif text-xl font-bold text-brand-darkbrown group-hover:text-brand-gold transition cursor-pointer" onclick="openProductModal(${p.id})">${title}</h3>
+              <p class="text-xs text-brand-brown/70 mt-2 line-clamp-2 leading-relaxed">${desc}</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-brand-rose/10 flex items-center justify-between">
+              <div>
+                <span class="text-[10px] uppercase font-semibold text-brand-brown/60">Narxi</span>
+                <p class="font-serif text-lg font-bold text-brand-darkbrown">${formattedPrice}</p>
+              </div>
+              <div class="flex items-center space-x-2">
+                <button onclick="openProductModal(${p.id})" class="w-9 h-9 rounded-full bg-brand-pink text-brand-darkbrown flex items-center justify-center hover:bg-brand-rose hover:text-white transition" title="Batafsil">
+                  <i class="fa-solid fa-eye text-xs"></i>
+                </button>
+                <button onclick="quickOrder(${p.id})" class="px-4 py-2 rounded-full bg-brand-darkbrown text-white text-[11px] uppercase font-bold tracking-wider hover:bg-brand-brown transition">
+                  ${translations[currentLang].btnOrder}
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function filterProducts(cat) {
+      document.querySelectorAll('#filterButtons .cat-btn').forEach(btn => {
+        btn.classList.remove('bg-brand-darkbrown', 'text-white');
+        btn.classList.add('bg-white', 'text-brand-darkbrown');
+      });
+      const activeBtn = document.querySelector(`#filterButtons [data-cat="${cat}"]`);
+      if (activeBtn) {
+        activeBtn.classList.remove('bg-white', 'text-brand-darkbrown');
+        activeBtn.classList.add('bg-brand-darkbrown', 'text-white');
+      }
+      renderProducts(cat);
+    }
+
+    function renderGallery() {
+      const container = document.getElementById('galleryContainer');
+      container.innerHTML = '';
+
+      galleryItems.forEach((item, index) => {
+        const el = document.createElement('div');
+        el.className = "relative rounded-2xl overflow-hidden group cursor-pointer h-52 sm:h-64 shadow-sm";
+        el.onclick = () => openLightbox(index);
+        el.innerHTML = `
+          <img src="${item.url}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+          <div class="absolute inset-0 bg-brand-darkbrown/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+            <span class="w-10 h-10 rounded-full bg-white text-brand-darkbrown flex items-center justify-center transform translate-y-4 group-hover:translate-y-0 transition duration-300">
+              <i class="fa-solid fa-magnifying-glass-plus text-xs"></i>
+            </span>
+          </div>
+        `;
+        container.appendChild(el);
+      });
+    }
+
+    function renderReviews() {
+      const container = document.getElementById('reviewsContainer');
+      container.innerHTML = '';
+      const list = JSON.parse(localStorage.getItem('gs_reviews') || '[]');
+
+      list.forEach(r => {
+        let stars = '';
+        for (let i = 1; i <= 5; i++) {
+          stars += `<i class="fa-solid fa-star ${i <= r.rating ? 'text-brand-gold' : 'text-gray-300'} text-xs"></i>`;
+        }
+
+        const card = document.createElement('div');
+        card.className = "bg-brand-lightpink/60 rounded-3xl p-6 border border-brand-rose/20 shadow-sm flex flex-col justify-between";
+        card.innerHTML = `
+          <div>
+            <div class="flex items-center space-x-1 mb-3">${stars}</div>
+            <p class="text-xs text-brand-brown leading-relaxed italic">"${r.text}"</p>
+          </div>
+          <div class="flex items-center space-x-3 mt-6 pt-4 border-t border-brand-rose/10">
+            <img src="${r.photo || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80'}" alt="${r.name}" class="w-10 h-10 rounded-full object-cover border border-brand-rose/40">
+            <div>
+              <p class="text-xs font-bold text-brand-darkbrown">${r.name}</p>
+              <p class="text-[10px] text-brand-brown/60">Tasdiqlangan mijoz</p>
+            </div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    /* ================= 7. PRODUCT MODAL ================= */
+    let selectedModalProduct = null;
+    let modalQty = 1;
+
+    function openProductModal(id) {
+      selectedModalProduct = products.find(p => p.id === id);
+      if (!selectedModalProduct) return;
+
+      modalQty = 1;
+      document.getElementById('modalQtyVal').innerText = modalQty;
+
+      document.getElementById('modalProductImg').src = selectedModalProduct.img;
+      document.getElementById('modalProductCategory').innerText = selectedModalProduct.category.toUpperCase();
+      document.getElementById('modalProductName').innerText = selectedModalProduct.name[currentLang];
+      document.getElementById('modalProductPrice').innerText = Number(selectedModalProduct.price).toLocaleString() + ' UZS';
+      document.getElementById('modalProductDesc').innerText = selectedModalProduct.desc[currentLang];
+      document.getElementById('modalProductWeight').innerText = selectedModalProduct.weight;
+      document.getElementById('modalProductIngredients').innerText = selectedModalProduct.ingredients[currentLang];
+
+      document.getElementById('productModal').classList.remove('hidden');
+    }
+
+    function closeProductModal() {
+      document.getElementById('productModal').classList.add('hidden');
+      selectedModalProduct = null;
+    }
+
+    function changeModalQty(diff) {
+      modalQty += diff;
+      if (modalQty < 1) modalQty = 1;
+      document.getElementById('modalQtyVal').innerText = modalQty;
+    }
+
+    function orderFromModal() {
+      if (!selectedModalProduct) return;
+      const productName = selectedModalProduct.name[currentLang];
+      closeProductModal();
+      quickOrderWithName(productName);
+    }
+
+    function quickOrder(productId) {
+      const p = products.find(i => i.id === productId);
+      if (p) quickOrderWithName(p.name[currentLang]);
+    }
+
+    function quickOrderWithName(name) {
+      const select = document.getElementById('orderProductSelect');
+      let found = false;
+      for (let i = 0; i < select.options.length; i++) {
+        if (select.options[i].text.toLowerCase().includes(name.toLowerCase())) {
+          select.selectedIndex = i;
+          found = true;
+          break;
+        }
+      }
+      if (!found) {
+        select.value = "Custom Design Cake";
+      }
+
+      window.location.hash = "#orderSection";
+      showToast(
+        currentLang === 'uz' ? "Mahsulot tanlandi!" : currentLang === 'ru' ? "Товар выбран!" : "Product selected!",
+        name
+      );
+    }
+
+    function selectPricePlan(plan) {
+      const sizeSelect = document.getElementById('orderSizeSelect');
+      if (plan.includes('Bento')) sizeSelect.value = "Mini / Bento (0.5 kg)";
+      else if (plan.includes('Medium')) sizeSelect.value = "Medium (1.5 kg)";
+      else if (plan.includes('Large')) sizeSelect.value = "Large (2.5 kg)";
+      else if (plan.includes('Wedding')) sizeSelect.value = "Custom Wedding (3.5+ kg)";
+      
+      window.location.hash = "#orderSection";
+    }
+
+    /* ================= 8. LIGHTBOX ================= */
+    let currentLightboxIdx = 0;
+
+    function openLightbox(index) {
+      currentLightboxIdx = index;
+      const item = galleryItems[index];
+      document.getElementById('lightboxImg').src = item.url;
+      document.getElementById('lightboxCaption').innerText = item.title;
+      document.getElementById('lightboxModal').classList.remove('hidden');
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightboxModal').classList.add('hidden');
+    }
+
+    function prevLightboxImage() {
+      currentLightboxIdx = (currentLightboxIdx - 1 + galleryItems.length) % galleryItems.length;
+      openLightbox(currentLightboxIdx);
+    }
+
+    function nextLightboxImage() {
+      currentLightboxIdx = (currentLightboxIdx + 1) % galleryItems.length;
+      openLightbox(currentLightboxIdx);
+    }
+
+    /* Keyboard navigation for Lightbox */
+    window.addEventListener('keydown', (e) => {
+      if (document.getElementById('lightboxModal').classList.contains('hidden')) return;
+      if (e.key === 'ArrowRight') nextLightboxImage();
+      if (e.key === 'ArrowLeft') prevLightboxImage();
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    /* ================= 9. REVIEWS SUBMISSION ================= */
+    function openReviewModal() {
+      document.getElementById('reviewModal').classList.remove('hidden');
+    }
+    function closeReviewModal() {
+      document.getElementById('reviewModal').classList.add('hidden');
+    }
+
+    function setFormRating(num) {
+      document.getElementById('revRatingVal').value = num;
+      const stars = document.getElementById('starRatingSelect').children;
+      for (let i = 0; i < stars.length; i++) {
+        if (i < num) {
+          stars[i].classList.remove('text-gray-300');
+          stars[i].classList.add('text-brand-gold');
+        } else {
+          stars[i].classList.remove('text-brand-gold');
+          stars[i].classList.add('text-gray-300');
+        }
+      }
+    }
+
+    function handleReviewSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('revName').value.trim();
+      const comment = document.getElementById('revComment').value.trim();
+      const photo = document.getElementById('revPhoto').value.trim();
+      const rating = parseInt(document.getElementById('revRatingVal').value) || 5;
+
+      const newRev = {
+        id: Date.now(),
+        name,
+        rating,
+        text: comment,
+        photo: photo || 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80',
+        date: new Date().toISOString().split('T')[0]
+      };
+
+      const existing = JSON.parse(localStorage.getItem('gs_reviews') || '[]');
+      existing.unshift(newRev);
+      localStorage.setItem('gs_reviews', JSON.stringify(existing));
+
+      closeReviewModal();
+      document.getElementById('newReviewForm').reset();
+      renderReviews();
+
+      showToast(
+        currentLang === 'uz' ? "Katta rahmat!" : currentLang === 'ru' ? "Спасибо!" : "Thank you!",
+        currentLang === 'uz' ? "Sizning fikringiz saytda e'lon qilindi." : currentLang === 'ru' ? "Ваш отзыв успешно опубликован." : "Your review has been published."
+      );
+    }
+
+    /* ================= 10. ORDER FORM & TRACKING ================= */
+    function handleOrderSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('orderCustName').value.trim();
+      const phone = document.getElementById('orderCustPhone').value.trim();
+      const product = document.getElementById('orderProductSelect').value;
+      const size = document.getElementById('orderSizeSelect').value;
+      const date = document.getElementById('orderDate').value;
+
+      if (!name || !phone || !date) {
+        alert("Iltimos, barcha majburiy maydonlarni to'ldiring!");
+        return;
+      }
+
+      // Generate Random Luxury Order ID: GS-2026-XXXX
+      const randomCode = Math.floor(1000 + Math.random() * 9000);
+      const orderId = `GS-${randomCode}`;
+
+      // Save order
+      const orders = JSON.parse(localStorage.getItem('gs_orders') || '{}');
+      orders[orderId] = {
+        id: orderId,
+        name,
+        phone,
+        product: `${product} (${size})`,
+        status: 1, // Received
+        createdAt: new Date().toISOString()
+      };
+      localStorage.setItem('gs_orders', JSON.stringify(orders));
+
+      // Reset form
+      document.getElementById('orderForm').reset();
+
+      // Open tracking directly
+      document.getElementById('trackInput').value = orderId;
+      checkOrderStatus();
+
+      showToast(
+        currentLang === 'uz' ? "Buyurtma Qabul Qilindi!" : currentLang === 'ru' ? "Заказ Принят!" : "Order Placed Successfully!",
+        `ID: ${orderId}. Siz bilan 15 daqiqada bog'lanamiz.`
+      );
+
+      // Scroll to tracker
+      setTimeout(() => {
+        window.location.hash = "#track";
+      }, 500);
+    }
+
+    function checkOrderStatus() {
+      const code = document.getElementById('trackInput').value.trim().toUpperCase();
+      const orders = JSON.parse(localStorage.getItem('gs_orders') || '{}');
+      const found = orders[code];
+
+      const resBox = document.getElementById('trackingResult');
+
+      if (!found) {
+        showToast(
+          currentLang === 'uz' ? "Buyurtma topilmadi" : currentLang === 'ru' ? "Заказ не найден" : "Order Not Found",
+          currentLang === 'uz' ? "Iltimos, buyurtma raqamini tekshirib qaytadan kiriting." : currentLang === 'ru' ? "Пожалуйста, проверьте номер заказа." : "Please check your order code.",
+          true
+        );
+        resBox.classList.add('hidden');
+        return;
+      }
+
+      resBox.classList.remove('hidden');
+      document.getElementById('trackResId').innerText = found.id;
+      document.getElementById('trackResProduct').innerText = found.product;
+
+      // Update 4-step progress UI
+      const currentStep = found.status || 1;
+      for (let s = 1; s <= 4; s++) {
+        const stepEl = document.getElementById(`step-${s}`);
+        const iconCircle = stepEl.querySelector('div');
+
+        if (s <= currentStep) {
+          iconCircle.className = "w-10 h-10 rounded-full flex items-center justify-center text-xs mb-2 transition bg-brand-darkbrown text-brand-gold shadow-md";
+        } else {
+          iconCircle.className = "w-10 h-10 rounded-full flex items-center justify-center text-xs mb-2 transition bg-brand-pink text-brand-brown/40";
+        }
+      }
+    }
+
+    /* ================= 11. TOAST NOTIFICATION HELPER ================= */
+    let toastTimeout;
+    function showToast(title, message, isError = false) {
+      clearTimeout(toastTimeout);
+      const toast = document.getElementById('toast');
+      const icon = document.getElementById('toastIcon');
+      
+      document.getElementById('toastTitle').innerText = title;
+      document.getElementById('toastMsg').innerText = message;
+
+      if (isError) {
+        icon.innerHTML = '<i class="fa-solid fa-circle-exclamation text-rose-400"></i>';
+      } else {
+        icon.innerHTML = '<i class="fa-solid fa-circle-check text-brand-gold"></i>';
+      }
+
+      toast.classList.remove('translate-y-32', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      toastTimeout = setTimeout(() => {
+        toast.classList.add('translate-y-32', 'opacity-0');
+        toast.classList.remove('translate-y-0', 'opacity-100');
+      }, 4500);
+    }
+
+    /* ================= 12. LANGUAGE SWITCHER LOGIC ================= */
+    function setLanguage(lang) {
+      if (!translations[lang]) return;
+      currentLang = lang;
+      localStorage.setItem('gs_lang', lang);
+
+      // Apply text replacements
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+          el.innerText = translations[lang][key];
+        }
+      });
+
+      // Update active state in top bar
+      ['uz', 'ru', 'en'].forEach(l => {
+        const btn = document.getElementById(`lang-${l}`);
+        if (btn) {
+          if (l === lang) {
+            btn.className = "px-2.5 py-1 rounded-full transition lang-btn bg-brand-darkbrown text-white";
+          } else {
+            btn.className = "px-2.5 py-1 rounded-full transition lang-btn text-brand-darkbrown hover:text-brand-gold";
+          }
+        }
+      });
+
+      // Re-render dynamic elements
+      renderProducts();
+    }
+
+    /* ================= 13. UI & EVENTS INITIALIZATION ================= */
+    document.addEventListener('DOMContentLoaded', () => {
+      // Restore saved language
+      const savedLang = localStorage.getItem('gs_lang') || 'uz';
+      setLanguage(savedLang);
+
+      // Set default minimum date for ordering (Today)
+      const todayStr = new Date().toISOString().split('T')[0];
+      const dateInput = document.getElementById('orderDate');
+      if (dateInput) {
+        dateInput.min = todayStr;
+        dateInput.value = todayStr;
+      }
+
+      // Initial Renders
+      renderGallery();
+      renderReviews();
+
+      // Mobile Menu Toggle
+      const mobileBtn = document.getElementById('mobileMenuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      mobileBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+
+      // Close mobile menu upon clicking any link
+      document.querySelectorAll('.mobile-link').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+        });
+      });
+
+      // Scroll To Top button visibility
+      const scrollBtn = document.getElementById('scrollTopBtn');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 400) {
+          scrollBtn.classList.remove('opacity-0', 'pointer-events-none');
+          scrollBtn.classList.add('opacity-100');
+        } else {
+          scrollBtn.classList.add('opacity-0', 'pointer-events-none');
+          scrollBtn.classList.remove('opacity-100');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
